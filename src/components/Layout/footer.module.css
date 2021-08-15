@@ -10,7 +10,7 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .footer_col ul{
@@ -23,8 +23,9 @@
     padding: 70px 0;
     bottom: 0;
     margin-bottom: 0px;
-    position:static;    
+    position:relative;    
     width:100%;
+
 }
 
 .footer_col{
@@ -83,6 +84,7 @@
         border-radius:50%;
         color:#ffffff;
         transition:all 0.5s ease;
+       
     }
 
         .footer_col .social_links a:hover {
