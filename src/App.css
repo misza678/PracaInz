@@ -1,7 +1,7 @@
 
 .body{
   display: flex;
-background-color: aqua;
+  position: relative;
  flex-direction: column;
 
 

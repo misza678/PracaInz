@@ -10,7 +10,6 @@
 .container{
     display: flex;
     text-align: center;
-   
     width: 80%;
     align-items: center; 
     flex-direction: column;
@@ -23,7 +22,6 @@ margin:auto;
     margin-left: auto;
     margin-right: auto;
     color:aliceblue;
- 
 }
 
 .Aboutsection{
@@ -60,6 +58,7 @@ background-attachment: fixed;
 background-size: cover;
 display: flex;
 justify-content: center;
+
 }
 
 

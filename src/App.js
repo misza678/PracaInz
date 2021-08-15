@@ -20,7 +20,7 @@ function App() {
 <Header />
 <Switch>
   <main>
-<Route path="/home" component={AboutUs}/> 
+<Route path="/" exact component={AboutUs}/> 
 <Route path="/konsole" component={ConsoleChoose}/> 
 </main>
 </Switch>

@@ -1,9 +1,7 @@
 
 
 .header{
-    overflow: hidden;
-    background-color: #ffffff;
-   
+    background-color: #ffffff;   
     font-family: 'Titillium Web', sans-serif;
   width: 100%;
   margin-bottom: 80px;
@@ -12,7 +10,7 @@
 
 
 .nav{
-    position: relative;
+  
     min-height:10vh;
     justify-content: center;
     width:90%;
@@ -72,6 +70,7 @@
 .nav ul li:hover>ul{
     opacity:1;
     visibility:visible;
+
 }
 .nav a {
     color: black;
