@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+
+*{
+    
+        scroll-behavior: smooth;
+       
+}
+
+.container{
+    display: flex;
+    text-align: center;
+   
+    width: 80%;
+    align-items: center; 
+    flex-direction: column;
+    justify-content: center;
+   background-color: blue;
+margin:auto;
+   
+}
+.container h1{
+    margin-left: auto;
+    margin-right: auto;
+    color:aliceblue;
+ 
+}
+
+.Aboutsection{
+display: flex;
+   flex-direction: row;
+   align-items: center; 
+background-color: gray;
+margin-bottom: 25px;
+margin-top: 25px;
+border-radius: 15px;
+width: 90%;
+}
+
+
+
+.Aboutsection img{
+    padding: 10px;
+    flex:2;
+}
+
+.text{
+    display: flex;
+    flex:2;
+    flex-direction: column;
+
+}
+
+
+.frontimage{
+height: 1000px;
+transform-origin: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+display: flex;
+justify-content: center;
+}
+
+
+.button {
+    position: relative;
+    top: 50%;
+  
+   
+    cursor:pointer;
+    font-size: 30px;
+    color: black;
+    border: 5px solid #FFFFFF;
+    border-radius: 7px; 
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-right: 50px;
+    padding-left: 50px;
+    font-family: 'Libre Baskerville', serif;
+   
+}
+
+.button:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+}
