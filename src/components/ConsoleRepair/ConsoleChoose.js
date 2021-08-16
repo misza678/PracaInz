@@ -6,15 +6,24 @@ import ps3 from '../../Content/Images/LogoForNavConsole/ps3.jpg';
 import ps2 from '../../Content/Images/LogoForNavConsole/ps2.jpg';
 import ps1 from '../../Content/Images/LogoForNavConsole/ps1.jpg';
 import Console2Stage from '../ConsoleRepair/Console2Stage';
-
+import logoimage from '../../Content/Images/playstationback.jpg';
 
 
 
 
 const ConsoleChoose= props => {
 return <Fragment>
-  <div className={classes.wrapper}>
-<div className={classes.container_console}>
+  <div style={{ 
+      backgroundImage: `url(${logoimage})`
+    }} className={classes.wrapper}>
+      
+  
+<div  className={classes.container_console}>
+ <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
+ </div>
+ <hr className={classes.margin}></hr>
+ 
+ <div className={classes.menu}>
 <div className={classes.block}>
     <a>
        <img src={ps4} />
@@ -39,7 +48,7 @@ return <Fragment>
         <h3 className={classes.console_name}>PlayStation 1</h3>
         </a>
 </div>
-
+</div>
 
 
 </div>
