@@ -7,7 +7,7 @@ const ConsoleModelChoose= props => {
     return <Fragment>
       
 <div className={classes.container_console}>
- <div className={classes.h1}><h1>Wybierz swoją konsole!</h1></div>
+ <div className={classes.h1}><h1>Jaka wersja?</h1></div>
  <hr className={classes.margin}></hr>
  <div className={classes.menu}>
 <div className={classes.block}>
@@ -22,7 +22,12 @@ const ConsoleModelChoose= props => {
         <h3 className={classes.console_name}>PSone</h3>
         </a>
 </div>
-
+<div className={classes.block}>
+<a>
+   
+        <h3 className={classes.console_name}>Nie wiem</h3>
+        </a>
+</div>
 
 </div>
 

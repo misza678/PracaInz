@@ -24,12 +24,17 @@ return <Fragment>
  <hr className={classes.margin}></hr>
  
  <div className={classes.menu}>
+ 
 <div className={classes.block}>
+
+
     <a>
        <img src={ps4} />
         <h3 className={classes.console_name}>PlayStation 4</h3>
         </a>
+        
 </div>
+
 <div className={classes.block}>
 <a>
     <img src={ps3} />
@@ -48,9 +53,10 @@ return <Fragment>
         <h3 className={classes.console_name}>PlayStation 1</h3>
         </a>
 </div>
+
+
+
 </div>
-
-
 </div>
 <Console2Stage />
 </div>
