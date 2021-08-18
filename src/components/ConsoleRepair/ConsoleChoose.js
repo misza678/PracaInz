@@ -7,12 +7,16 @@ import ps2 from '../../Content/Images/LogoForNavConsole/ps2.jpg';
 import ps1 from '../../Content/Images/LogoForNavConsole/ps1.jpg';
 import Console2Stage from '../ConsoleRepair/Console2Stage';
 import logoimage from '../../Content/Images/playstationback.jpg';
-
+import Console3Stage from '../ConsoleRepair/Console3Stage';
+import Console4Stage from '../ConsoleRepair/Console4Stage';
+import React, { useRef } from 'react';
 
 
 
 const ConsoleChoose= props => {
+    const [visible, setVisible] = React.useState(false);
 return <Fragment>
+    
   <div style={{ 
       backgroundImage: `url(${logoimage})`
     }} className={classes.wrapper}>
@@ -27,31 +31,37 @@ return <Fragment>
  
 <div className={classes.block}>
 
-
-    <a>
+<Link  to="Console2Stage" duration={100} offset={-180} spy={true} smooth={true}>
+    <a >
        <img src={ps4} />
         <h3 className={classes.console_name}>PlayStation 4</h3>
         </a>
-        
+        </Link>
 </div>
 
 <div className={classes.block}>
+    
+<Link  to="Console2Stage" duration={100} offset={-180} spy={true} smooth={true}>
 <a>
     <img src={ps3} />
         <h3 className={classes.console_name}>PlayStation 3</h3>
-        </a>
+        </a></Link>
 </div>
 <div className={classes.block}>
+    
+<Link  to="Console2Stage" duration={100} offset={-180} spy={true} smooth={true}>
 <a>
     <img src={ps2} />
         <h3 className={classes.console_name}>PlayStation 2</h3>
-        </a>
+        </a></Link>
 </div>
 <div className={classes.block}>
+    
+<Link  to="Console2Stage" duration={100} offset={-180} spy={true} smooth={true}>
 <a>
     <img src={ps1} />
         <h3 className={classes.console_name}>PlayStation 1</h3>
-        </a>
+        </a></Link>
 </div>
 
 
@@ -59,6 +69,8 @@ return <Fragment>
 </div>
 </div>
 <Console2Stage />
+<Console3Stage/>
+<Console4Stage/>
 </div>
 </Fragment>
 

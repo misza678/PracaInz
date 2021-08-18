@@ -6,26 +6,23 @@ import {Link} from 'react-scroll';
 const ConsoleModelChoose= props => {
     return <Fragment>
       
-<div id="Console2Stage" className={classes.container_console}>
- <div className={classes.h1}><h1>Jaka wersja?</h1></div>
+<div className={classes.container_console}>
+ <div className={classes.h1}><h1>Jak dostarczysz konsolę?</h1></div>
  <hr className={classes.margin}></hr>
  <div className={classes.menu}>
 <div className={classes.block}>
-    <a>
-       
-        <h3 className={classes.console_name}>PSX</h3>
+    <a>     
+        <h3 className={classes.console_name}>Zamawiam kuriera</h3>
         </a>
 </div>
 <div className={classes.block}>
 <a>
-   
-        <h3 className={classes.console_name}>PSone</h3>
+        <h3 className={classes.console_name}>Nadam z paczkomatu</h3>
         </a>
 </div>
 <div className={classes.block}>
 <a>
-   
-        <h3 className={classes.console_name}>Nie wiem</h3>
+        <h3 className={classes.console_name}>Przyniosę osobiście</h3>
         </a>
 </div>
 
