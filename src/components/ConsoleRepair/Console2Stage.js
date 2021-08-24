@@ -1,9 +1,10 @@
-import {Fragment} from "react";
+import {Fragment, useState } from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 import {Link} from 'react-scroll';
 
 
-const ConsoleModelChoose= props => {
+function ConsoleModelChoose({setversion})  {
+  
     return <Fragment>
       
 <div id="Console2Stage" className={classes.container_console}>
@@ -11,19 +12,19 @@ const ConsoleModelChoose= props => {
  <hr className={classes.margin}></hr>
  <div className={classes.menu}>
 <div className={classes.block}>
-    <a>
+    <a onClick={() => setversion(1)}>
        
         <h3 className={classes.console_name}>PSX</h3>
         </a>
 </div>
 <div className={classes.block}>
-<a>
+<a onClick={() => setversion(2)}>
    
         <h3 className={classes.console_name}>PSone</h3>
         </a>
 </div>
 <div className={classes.block}>
-<a>
+<a onClick={() => setversion(3)}>
    
         <h3 className={classes.console_name}>Nie wiem</h3>
         </a>
