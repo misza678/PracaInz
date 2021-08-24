@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
-import {Link} from 'react-scroll';
+import {Link,scroller } from 'react-scroll';
 import ps4 from '../../Content/Images/LogoForNavConsole/ps4.jpg';
 import ps3 from '../../Content/Images/LogoForNavConsole/ps3.jpg';
 import ps2 from '../../Content/Images/LogoForNavConsole/ps2.jpg';
@@ -9,7 +9,7 @@ import Console2Stage from '../ConsoleRepair/Console2Stage';
 import logoimage from '../../Content/Images/playstationback.jpg';
 import Console3Stage from '../ConsoleRepair/Console3Stage';
 import Console4Stage from '../ConsoleRepair/Console4Stage';
-import React, { useState } from 'react';
+import React, { useState, useRef} from 'react';
 import {useForm} from 'react-hook-form';
 
 
@@ -17,9 +17,25 @@ const ConsoleChoose= props => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [consoleid,setConsoleId]=useState(0);
     const [version,setversion]=useState(0);
+    const [defect,setdefect]=useState(0);
+    const [shipping,setshipping]=useState(0);
+    const [shipping,setshipping]=useState(0);
     console.log(version);    
     console.log(consoleid);
-  
+    console.log(defect);
+    console.log(shipping);
+    
+ 
+const myRef = useRef(null)
+
+const gotoServices = () =>
+    window.scrollTo({
+      top: ServicesRef.current.offsetTop,
+      behavior: "smooth",
+      // You can also assign value "auto"
+      // to the behavior parameter.
+    }); 
+
 return <Fragment>
     
   <div style={{ 
@@ -37,7 +53,7 @@ return <Fragment>
 <div className={classes.block}>
 
 <Link  to="Console2Stage" duration={100} offset={-180} spy={true} smooth={true}>
-    <a  onClick={() => setConsoleId(4)}>
+    <a  onClick={() => setConsoleId(4), {executeScroll}}>
        <img src={ps4} />
         <h3 className={classes.console_name}>PlayStation 4</h3>
         </a>
@@ -73,9 +89,9 @@ return <Fragment>
 
 </div>
 </div>
-<Console2Stage setversion={setversion}/>
-<Console3Stage/>
-<Console4Stage/>
+<Console2Stage setversion={setversion} scrollto={scrollto}/>
+<Console3Stage setdefect={setdefect}/>
+<Console4Stage setshipping={setshipping}/>
 
 <form onSubmit={handleSubmit()}>
     <label>

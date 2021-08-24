@@ -3,7 +3,7 @@ import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 import {Link} from 'react-scroll';
 
 
-function ConsoleModelChoose({setversion})  {
+function ConsoleModelChoose({setversion,scrollto})  {
   
     return <Fragment>
       
@@ -12,11 +12,13 @@ function ConsoleModelChoose({setversion})  {
  <hr className={classes.margin}></hr>
  <div className={classes.menu}>
 <div className={classes.block}>
-    <a onClick={() => setversion(1)}>
-       
+
+    <a ref={myRef} onClick={() => setversion(1),()=>scrollto("Console3Stage")} >     
         <h3 className={classes.console_name}>PSX</h3>
         </a>
+       
 </div>
+
 <div className={classes.block}>
 <a onClick={() => setversion(2)}>
    
