@@ -5,7 +5,7 @@ import { FaPlaystation } from 'react-icons/fa';
 import { FaXbox } from 'react-icons/fa';
 import { SiNintendoswitch } from 'react-icons/si';
 import { BsThreeDots } from 'react-icons/bs';
-import {BrowserRouter as Router,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
 
 
 
@@ -17,9 +17,9 @@ import {BrowserRouter as Router,Link} from 'react-router-dom';
 
 return <Fragment>
 <header className={classes.header}>
-    <Router>
+    
     <nav className={classes.nav}>
-<a href="#">
+<a href="/">
                 <img src={logoImage} />
                 <h1>ConsoleStore</h1>
             </a>
@@ -49,7 +49,7 @@ return <Fragment>
                 </ul>
             </div>
             </nav>
-            </Router>
+            
 </header>
 
 </Fragment>
