@@ -6,43 +6,65 @@ import ps3 from '../../Content/Images/LogoForNavConsole/ps3.jpg';
 import ps2 from '../../Content/Images/LogoForNavConsole/ps2.jpg';
 import ps1 from '../../Content/Images/LogoForNavConsole/ps1.jpg';
 
-import logoimage from '../../Content/Images/playstationback.jpg';
+import xboxone from '../../Content/Images/LogoForNavConsole/xboxone.jpg';
+import xbox360 from '../../Content/Images/LogoForNavConsole/xbox360.jpg';
+import xclassic from '../../Content/Images/LogoForNavConsole/xclassic.jpg';
 
-
-    const playstation=[
+const consoles=[
+     
         {
-            name:"Playstation 4",
+            company:'playstation',
+            name:'Playstation 4',
             image: `${ps4}`,
-            consoleid:"4"
+            consoleid:'4'
         },
         {
+            company:'playstation',
             name:"Playstation 3",
             image: `${ps3}`,
             consoleid:"3"
         },   
         {
+            company:'playstation',
             name:"Playstation 2",
             image: `${ps2}`,
             consoleid:"2"
         },
         {
+            company:'playstation',
             name:"Playstation 1",
             image: `${ps1}`,
             consoleid:"1"
+        },
+
+    
+        {
+            company:'xbox',
+            name:"Xbox One",
+            image: `${xboxone}`,
+            consoleid:"5"
+        },
+        {
+            company:'xbox',
+            name:"Xbox 360",
+            image: `${xbox360}`,
+            consoleid:"6"
+        },   
+        {
+            company:'xbox',
+            name:"Xbox classic",
+            image: `${xclassic}`,
+            consoleid:"7"
         }
-
+      
     ];
-    const xbox={
 
     
-    }
-
-function Console1Stage({setConsoleId},whichConsole) {
-    
-    console.log(whichConsole);
+const Console1Stage = (props)=>{
+    const{whichConsole,setConsoleId}=props;
+  
 return <Fragment>
   
-
 <div  className={classes.container_console}>
  <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
  </div>
@@ -50,12 +72,15 @@ return <Fragment>
  
  <div className={classes.menu}>
 
-{playstation.map((playstation)=>
- <div className={classes.block}>
- <a  onClick={() => setConsoleId(playstation.consoleid)}>
-<img src={playstation.image} />
-<h3 className={classes.console_name}>{playstation.name}</h3>
+
+{consoles.filter(console => console.company == whichConsole).map((whichConsole)=>
+ <div key={whichConsole.consoleid} className={classes.block}>
+
+ <a  onClick={() => setConsoleId(whichConsole.consoleid)}>
+<img src={whichConsole.image} />
+<h3 className={classes.console_name}>{whichConsole.name}</h3>
 </a>
+
 </div>
 )}
 

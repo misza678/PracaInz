@@ -7,6 +7,7 @@ import logoimage from '../../Content/Images/playstationback.jpg';
 import Console3Stage from '../ConsoleRepair/Console3Stage';
 import Console4Stage from '../ConsoleRepair/Console4Stage';
 import {useForm} from 'react-hook-form';
+import { useParams } from "react-router-dom";
 
 
 const ConsoleChoose= props => {
@@ -21,8 +22,8 @@ const ConsoleChoose= props => {
      console.log(defect);
      console.log(shipping);
     console.log(consoleid);
-
- 
+    let {mod}=useParams();
+  console.log(mod);
 
 
 return <Fragment>
@@ -31,9 +32,9 @@ return <Fragment>
       backgroundImage: `url(${logoimage})`
     }} className={classes.wrapper}>
 
-      <Console1Stage setConsoleId={setConsoleId} whichConsole={'playstation'}/>
-      <Console2Stage setversion={setversion}/>
-      <Console3Stage setdefect={setdefect}/>
+      <Console1Stage whichConsole={mod} setConsoleId={setConsoleId} />
+      <Console2Stage whichmodel={consoleid} setversion={setversion}/>
+      <Console3Stage whichmodel={version} setdefect={setdefect}/>
       <Console4Stage setshipping={setshipping}/>
 
 <form onSubmit={handleSubmit()}>
