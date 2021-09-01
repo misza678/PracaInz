@@ -17,26 +17,37 @@ const ConsoleChoose= props => {
      const [defect,setdefect]=useState(0);
      const [shipping,setshipping]=useState(0);
 
-     console.log(version);    
+
+     console.log("numer konsoli "+consoleid);
+     console.log("numer wersji "+version);  
+
+
+
+
+
+
+
+       
   
      console.log(defect);
      console.log(shipping);
-    console.log(consoleid);
+    
     let {mod}=useParams();
   console.log(mod);
 
 
+
 return <Fragment>
-    
+   
   <div style={{ 
       backgroundImage: `url(${logoimage})`
     }} className={classes.wrapper}>
 
       <Console1Stage whichConsole={mod} setConsoleId={setConsoleId} />
-      <Console2Stage whichmodel={consoleid} setversion={setversion}/>
-      <Console3Stage whichmodel={version} setdefect={setdefect}/>
-      <Console4Stage setshipping={setshipping}/>
-
+      <Console2Stage whichmodel={consoleid} setversion={setversion} setdefect={setdefect} />
+      <Console3Stage whichmodel={defect} setdefect={setdefect}/>
+      <Console4Stage whichmodel={defect} setshipping={setshipping}/>
+      
 <form onSubmit={handleSubmit()}>
     <label>
     
@@ -47,7 +58,6 @@ return <Fragment>
 
 
 </div>
-
 
 
 

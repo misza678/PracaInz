@@ -1,42 +1,29 @@
-import {Fragment} from "react";
+import {Fragment,useState,useEffect } from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 import {Link} from 'react-scroll';
 
-const defects=[
-     
-        {
-            name:'Nie czyta płyt',
-            defectid:'4',
-            supportedconsoles:[1,3,5,6]
-        },
-        {
-            name:"Nie włącza się",
-            defectid:"3"
-        },   
-        {
-
-            name:"Nie łączy się z padem",
-            defectid:"2"
-        },
-        {
-
-            name:"Przegrzewa się",
-            defectid:"1"
-        },
-
-    
-        {    
-            name:"Coś innego",
-            defectid:"5"
-        },
-      
-      
-    ];
-
+import { createApiEndpoint, ENDPOINTS } from "../../api";
     
 const ConsoleDefectChoose = (props)=>{
     const{whichmodel,setdefect}=props;
-  console.log(whichmodel);
+  
+    const[consoleList,setconsoleList]=useState([]);
+
+
+useEffect(() => {
+    createApiEndpoint(ENDPOINTS.Defects).fetchById(whichmodel).then(res=>{
+        let consoleList=res.data.map(item=>({
+            id:item.defectId,
+            name:item.name,
+            
+        }))
+        setconsoleList(consoleList);
+    
+    })
+    .catch(err=>console.log(err))
+    
+},[whichmodel])
+
 return <Fragment>
   
 <div  className={classes.container_console}>
@@ -47,10 +34,10 @@ return <Fragment>
  <div className={classes.menu}>
 
 
-{defects.filter(defects => defects.supportedconsoles=whichmodel).map((whichmodel)=>
- <div key={whichmodel.consoleid} className={classes.block}>
+{consoleList.map((whichmodel)=>
+ <div key={whichmodel.id} className={classes.block}>
 
- <a  onClick={() => setdefect(whichmodel.defectid)}>
+ <a  onClick={() => setdefect(whichmodel.id)}>
 {/* <img src={whichConsole.image} /> */}
 <h3 className={classes.console_name}>{whichmodel.name}</h3>
 </a>

@@ -31,7 +31,7 @@ return <Fragment>
                             <li><FaPlaystation /><Link to="/konsole/playstation">PLAYSTATION</Link></li>
                             <li><FaXbox/><Link to="/konsole/xbox">XBOX</Link></li>
                             <li><SiNintendoswitch/><Link to="/konsole/nintendo">NINTENDO</Link></li>
-                            <li><BsThreeDots/><Link to="/konsole/inne">INNE</Link></li>
+                         
                         </ul>
                     </li>
                     <li>
@@ -40,7 +40,7 @@ return <Fragment>
                         <li><FaPlaystation /><Link to="/konsole/playstation">PLAYSTATION</Link></li>
                             <li><FaXbox/><Link to="/konsole/xbox">XBOX</Link></li>
                             <li><SiNintendoswitch/><Link to="/konsole/nintendo">NINTENDO</Link></li>
-                            <li><BsThreeDots/><Link to="/konsole/inne">INNE</Link></li>
+                           
                         </ul>
                     </li>
                     <li><Link to="/konsole/playstation">Market</Link></li>

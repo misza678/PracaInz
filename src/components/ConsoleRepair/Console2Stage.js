@@ -1,121 +1,38 @@
-import {Fragment, useState } from "react";
+import {Fragment, useState,useEffect } from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 import {Link} from 'react-scroll';
-
-
-
-
-const consoles=[
-     
-    {
-        name:'Playstation 4',  
-        consoleid:'4',
-        modelid:'1'
-
-    },
-    {
-        name:'Playstation 4 Slim',   
-        consoleid:'4',
-        modelid:'2'
-    },
-    {
-        name:'Playstation 4 Pro',
-        consoleid:'4',
-        modelid:'3'
-    },
-
-
-
-    {
-        name:"Playstation 3 Fat",
-        consoleid:"3",
-        modelid:'4'
-    },   
-    {
-        name:"Playstation 3 Slim",
-        consoleid:"3",
-        modelid:'5'
-    },   
-    {
-        name:"Playstation 3 SuperSlim",
-        consoleid:"3",
-        modelid:'6'
-    },   
-    {
-        name:"Playstation 2 Fat",
-        consoleid:"2",
-        modelid:'7'
-    },
-    {
-        name:"Playstation 2 Slim",
-        consoleid:"2",
-        modelid:'8'
-    },
-    {
-        name:"PSX",
-        consoleid:"1",
-        modelid:'9'
-    },
-    {
-        name:"PsOne",
-        consoleid:"1",
-        modelid:'10'
-    },
-
-
-    {
-        name:"Xbox One",
-        consoleid:"5",
-        modelid:'11'
-    },
-    {
-        name:"Xbox One S",
-        consoleid:"5",
-        modelid:'12'
-    },
-    {
-        name:"Xbox One X",
-        consoleid:"5",
-        modelid:'13'
-    },
-    {
-        name:"Xbox 360 Arcade/Core",
-        consoleid:"6",
-        modelid:'14'
-    },   
-    {
-        name:"Xbox 360 Premium",
-        consoleid:"6",
-        modelid:'15'
-    },  
-    {
-        name:"Xbox 360 Elite",
-        consoleid:"6",
-        modelid:'16'
-    },  
-    {
-        name:"Xbox 360 S",
-        consoleid:"6",
-        modelid:'17'
-    },  
-    {
-        name:"Xbox 360 E",
-        consoleid:"6",
-        modelid:'18'
-    },  
-    {
-        name:"Xbox Classic",
-        modelid:'19',
-        consoleid:"7"
-    }
-  
-];
+import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 
 
 const ConsoleModelChoose = (props)=>{
-    const{whichmodel,setversion}=props;
-return <Fragment>
+    const{whichmodel,setversion,setdefect}=props;
+    const[consoleList,setconsoleList]=useState([]);
+
+
+    
+
+    
+useEffect(() => {
+    
+    createApiEndpoint(ENDPOINTS.ProductsToViews).fetchById(whichmodel).then(res=>{
+        let consoleList=res.data.map(item=>({
+            id:item.modlesToViewId,
+            consolename:item.name,
+            image:item.photoSRC,
+            defectid:item.defectType
+        }))
+        setconsoleList(consoleList);
+        
+    })
+    .catch(err=>console.log(err))
+
+
+},[whichmodel])
+
+
+ 
+    return <Fragment>
   
 <div  className={classes.container_console}>
  <div className={classes.h1}><h1>Jaka wersja?</h1>
@@ -125,10 +42,12 @@ return <Fragment>
  <div className={classes.menu}>
 
 
-{consoles.filter(console => console.consoleid == whichmodel).map((whichmodel)=>
- <div key={whichmodel.modelid} className={classes.block}>
-<a  onClick={() => setversion(1)} >     
-        <h3 className={classes.console_name}>{whichmodel.name}</h3>
+{consoleList.map((whichmodel)=>
+ <div key={whichmodel.id} className={classes.block}>
+  
+<a  onClick={() => {setversion(whichmodel.id); setdefect(whichmodel.defectid) } }>
+<img src={require("../../Content/Images/LogoForNavConsole/"+whichmodel.image+".jpg").default} />
+        <h3 className={classes.console_name}>{whichmodel.consolename}</h3>
         </a>
 
 </div>
@@ -144,11 +63,8 @@ return <Fragment>
 
 
 
+
+
 export default ConsoleModelChoose;
-
-
-
-
-
 
 

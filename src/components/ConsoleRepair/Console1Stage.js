@@ -1,4 +1,4 @@
-import React, {Component, Fragment,Suspense,useRef,useState} from "react";
+import React, {Component, Fragment,Suspense,useRef,useState,useEffect} from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 
 import ps4 from '../../Content/Images/LogoForNavConsole/ps4.jpg';
@@ -9,60 +9,34 @@ import ps1 from '../../Content/Images/LogoForNavConsole/ps1.jpg';
 import xboxone from '../../Content/Images/LogoForNavConsole/xboxone.jpg';
 import xbox360 from '../../Content/Images/LogoForNavConsole/xbox360.jpg';
 import xclassic from '../../Content/Images/LogoForNavConsole/xclassic.jpg';
+import { createApiEndpoint, ENDPOINTS } from "../../api";
 
-const consoles=[
-     
-        {
-            company:'playstation',
-            name:'Playstation 4',
-            image: `${ps4}`,
-            consoleid:'4'
-        },
-        {
-            company:'playstation',
-            name:"Playstation 3",
-            image: `${ps3}`,
-            consoleid:"3"
-        },   
-        {
-            company:'playstation',
-            name:"Playstation 2",
-            image: `${ps2}`,
-            consoleid:"2"
-        },
-        {
-            company:'playstation',
-            name:"Playstation 1",
-            image: `${ps1}`,
-            consoleid:"1"
-        },
 
-    
-        {
-            company:'xbox',
-            name:"Xbox One",
-            image: `${xboxone}`,
-            consoleid:"5"
-        },
-        {
-            company:'xbox',
-            name:"Xbox 360",
-            image: `${xbox360}`,
-            consoleid:"6"
-        },   
-        {
-            company:'xbox',
-            name:"Xbox classic",
-            image: `${xclassic}`,
-            consoleid:"7"
-        }
-      
-    ];
 
     
 const Console1Stage = (props)=>{
     const{whichConsole,setConsoleId}=props;
   
+    const[consoleList,setconsoleList]=useState([]);
+
+useEffect(() => {
+    createApiEndpoint(ENDPOINTS.MainProduct).fetchById(whichConsole).then(res=>{
+        let consoleList=res.data.map(item=>({
+            id:item.productsToViewId,
+            consolename:item.name,
+            image:item.photoSRC
+        }))
+        setconsoleList(consoleList);
+    
+    })
+    .catch(err=>console.log(err))
+    
+},[whichConsole])
+
+
+
+
+
 return <Fragment>
   
 <div  className={classes.container_console}>
@@ -73,12 +47,12 @@ return <Fragment>
  <div className={classes.menu}>
 
 
-{consoles.filter(console => console.company == whichConsole).map((whichConsole)=>
- <div key={whichConsole.consoleid} className={classes.block}>
+{consoleList.map((whichConsole)=>
+ <div key={whichConsole.id} className={classes.block}>
 
- <a  onClick={() => setConsoleId(whichConsole.consoleid)}>
-<img src={whichConsole.image} />
-<h3 className={classes.console_name}>{whichConsole.name}</h3>
+ <a  onClick={() => setConsoleId(whichConsole.id)}>
+<img src={require("../../Content/Images/LogoForNavConsole/"+whichConsole.image+".jpg").default} />
+<h3 className={classes.console_name}>{whichConsole.consolename}</h3>
 </a>
 
 </div>
