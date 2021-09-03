@@ -22,7 +22,7 @@ useEffect(() => {
     })
     .catch(err=>console.log(err))
     
-},[whichmodel])
+},[whichmodel>0])
 
 return <Fragment>
   

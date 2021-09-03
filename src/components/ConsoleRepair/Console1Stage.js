@@ -1,4 +1,4 @@
-import React, {Component, Fragment,Suspense,useRef,useState,useEffect} from "react";
+import React, { Component, Fragment, Suspense, useRef, useState, useEffect } from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 
 import ps4 from '../../Content/Images/LogoForNavConsole/ps4.jpg';
@@ -13,55 +13,55 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 
 
-    
-const Console1Stage = (props)=>{
-    const{whichConsole,setConsoleId}=props;
-  
-    const[consoleList,setconsoleList]=useState([]);
 
-useEffect(() => {
-    createApiEndpoint(ENDPOINTS.MainProduct).fetchById(whichConsole).then(res=>{
-        let consoleList=res.data.map(item=>({
-            id:item.productsToViewId,
-            consolename:item.name,
-            image:item.photoSRC
-        }))
-        setconsoleList(consoleList);
-    
-    })
-    .catch(err=>console.log(err))
-    
-},[whichConsole])
+const Console1Stage = (props) => {
+    const { whichConsole, setConsoleId } = props;
 
+    const [consoleList, setconsoleList] = useState([]);
 
+    useEffect(() => {
+        createApiEndpoint(ENDPOINTS.MainProduct).fetchById(whichConsole).then(res => {
+            let consoleList = res.data.map(item => ({
+                id: item.productsToViewId,
+                consolename: item.name,
+                image: item.photoSRC
+            }))
+            setconsoleList(consoleList);
+
+        })
+            .catch(err => console.log(err))
+
+    }, [whichConsole>0])
 
 
 
-return <Fragment>
-  
-<div  className={classes.container_console}>
- <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
- </div>
- <hr className={classes.margin}></hr>
- 
- <div className={classes.menu}>
 
 
-{consoleList.map((whichConsole)=>
- <div key={whichConsole.id} className={classes.block}>
+    return <Fragment>
 
- <a  onClick={() => setConsoleId(whichConsole.id)}>
-<img src={require("../../Content/Images/LogoForNavConsole/"+whichConsole.image+".jpg").default} />
-<h3 className={classes.console_name}>{whichConsole.consolename}</h3>
-</a>
+        <div className={classes.container_console}>
+            <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
+            </div>
+            <hr className={classes.margin}></hr>
 
-</div>
-)}
+            <div className={classes.menu}>
 
-</div>
-</div>
 
-</Fragment>
+                {consoleList.map((whichConsole) =>
+                    <div key={whichConsole.id} className={classes.block}>
+
+                        <a onClick={() => setConsoleId(whichConsole.id)}>
+                            <img src={require("../../Content/Images/LogoForNavConsole/" + whichConsole.image + ".jpg").default} />
+                            <h3 className={classes.console_name}>{whichConsole.consolename}</h3>
+                        </a>
+
+                    </div>
+                )}
+
+            </div>
+        </div>
+
+    </Fragment>
 
 }
 

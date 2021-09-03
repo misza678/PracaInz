@@ -22,8 +22,8 @@ useEffect(() => {
     })
     .catch(err=>console.log(err))
 
-console.log({whichmodel});
-},[whichmodel])
+
+},[whichmodel>0])
 
 return <Fragment>
 <div className={classes.container_console}>

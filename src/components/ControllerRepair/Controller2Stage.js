@@ -5,7 +5,7 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 
 
-const ConsoleModelChoose = (props)=>{
+const Controller2stage = (props)=>{
     const{whichmodel,setversion,setdefect}=props;
     const[consoleList,setconsoleList]=useState([]);
 
@@ -35,7 +35,7 @@ useEffect(() => {
     return <Fragment>
   
 <div  className={classes.container_console}>
- <div className={classes.h1}><h1>Jaka wersja?</h1>
+ <div className={classes.h1}><h1>Jaki model?</h1>
  </div>
  <hr className={classes.margin}></hr>
  
@@ -65,6 +65,6 @@ useEffect(() => {
 
 
 
-export default ConsoleModelChoose;
+export default Controller2stage;
 
 

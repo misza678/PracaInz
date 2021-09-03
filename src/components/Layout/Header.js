@@ -26,7 +26,7 @@ return <Fragment>
             <div className={classes.menu}>
                 <ul>
                     <li>
-                        <a className={classes.napis} href="#">Konsole</a>
+                        <a className={classes.napis} >Konsole</a>
                         <ul className={classes.list}>
                             <li><FaPlaystation /><Link to="/konsole/playstation">PLAYSTATION</Link></li>
                             <li><FaXbox/><Link to="/konsole/xbox">XBOX</Link></li>
@@ -35,11 +35,11 @@ return <Fragment>
                         </ul>
                     </li>
                     <li>
-                        <a className={classes.napis} href="#">Kontrolery</a>
+                        <a className={classes.napis} >Kontrolery</a>
                         <ul className={classes.list}>
-                        <li><FaPlaystation /><Link to="/konsole/playstation">PLAYSTATION</Link></li>
-                            <li><FaXbox/><Link to="/konsole/xbox">XBOX</Link></li>
-                            <li><SiNintendoswitch/><Link to="/konsole/nintendo">NINTENDO</Link></li>
+                        <li><FaPlaystation /><Link to="/kontrolery/playstation">PLAYSTATION</Link></li>
+                            <li><FaXbox/><Link to="/kontrolery/xbox">XBOX</Link></li>
+                            <li><SiNintendoswitch/><Link to="/kontrolery/nintendo">NINTENDO</Link></li>
                            
                         </ul>
                     </li>
