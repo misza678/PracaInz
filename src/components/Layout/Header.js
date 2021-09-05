@@ -45,7 +45,7 @@ return <Fragment>
                     </li>
                     <li><Link to="/konsole/playstation">Market</Link></li>
                     <li><Link to="/konsole/playstation">Skup</Link></li>
-                    <li><Link to="/konsole/playstation">Kontakt</Link></li>
+                    <li><Link to="/kontakt">Kontakt</Link></li>
                 </ul>
             </div>
             </nav>

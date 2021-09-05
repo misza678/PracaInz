@@ -15,7 +15,7 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 
 const Console1Stage = (props) => {
-    const { whichConsole, setConsoleId } = props;
+    const { whichConsole, setConsoleId,setstep } = props;
 
     const [consoleList, setconsoleList] = useState([]);
 
@@ -43,26 +43,18 @@ const Console1Stage = (props) => {
             <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
             </div>
             <hr className={classes.margin}></hr>
-
             <div className={classes.menu}>
-
-
                 {consoleList.map((whichConsole) =>
                     <div key={whichConsole.id} className={classes.block}>
-
-                        <a onClick={() => setConsoleId(whichConsole.id)}>
+                        <a onClick={() => {setConsoleId(whichConsole.id);  setstep(true)  }}>
                             <img src={require("../../Content/Images/LogoForNavConsole/" + whichConsole.image + ".jpg").default} />
                             <h3 className={classes.console_name}>{whichConsole.consolename}</h3>
                         </a>
-
                     </div>
                 )}
-
             </div>
         </div>
-
     </Fragment>
-
 }
 
 

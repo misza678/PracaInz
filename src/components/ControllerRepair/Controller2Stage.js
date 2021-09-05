@@ -6,16 +6,11 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 
 const Controller2stage = (props)=>{
-    const{whichmodel,setversion,setdefect}=props;
+    const{whichmodel,setversion,setdefect,categoryid,setstep}=props;
     const[consoleList,setconsoleList]=useState([]);
 
-
-    
-
-    
 useEffect(() => {
-    
-    createApiEndpoint(ENDPOINTS.ProductsToViews).fetchById(whichmodel).then(res=>{
+    createApiEndpoint(ENDPOINTS.ProductsToViews).fetchById(whichmodel+'?category='+categoryid).then(res=>{
         let consoleList=res.data.map(item=>({
             id:item.modlesToViewId,
             consolename:item.name,
@@ -26,11 +21,7 @@ useEffect(() => {
         
     })
     .catch(err=>console.log(err))
-
-
 },[whichmodel>0])
-
-
  
     return <Fragment>
   
@@ -45,8 +36,8 @@ useEffect(() => {
 {consoleList.map((whichmodel)=>
  <div key={whichmodel.id} className={classes.block}>
   
-<a  onClick={() => {setversion(whichmodel.id); setdefect(whichmodel.defectid) } }>
-<img src={require("../../Content/Images/LogoForNavConsole/"+whichmodel.image+".jpg").default} />
+<a  onClick={() => {setversion(whichmodel.id); setdefect(whichmodel.defectid);  setstep(true)   } }>
+<img src={require("../../Content/Images/LogoForNavController/"+whichmodel.image+".jpg").default} />
         <h3 className={classes.console_name}>{whichmodel.consolename}</h3>
         </a>
 

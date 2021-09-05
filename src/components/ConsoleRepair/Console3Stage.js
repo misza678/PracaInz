@@ -5,7 +5,7 @@ import {Link} from 'react-scroll';
 import { createApiEndpoint, ENDPOINTS } from "../../api";
     
 const ConsoleDefectChoose = (props)=>{
-    const{whichmodel,setdefect}=props;
+    const{whichmodel,setdefect,setstep}=props;
   
     const[consoleList,setconsoleList]=useState([]);
 
@@ -37,7 +37,7 @@ return <Fragment>
 {consoleList.map((whichmodel)=>
  <div key={whichmodel.id} className={classes.block}>
 
- <a  onClick={() => setdefect(whichmodel.id)}>
+ <a  onClick={() => {setdefect(whichmodel.id);  setstep(true)  }}>
 {/* <img src={whichConsole.image} /> */}
 <h3 className={classes.console_name}>{whichmodel.name}</h3>
 </a>

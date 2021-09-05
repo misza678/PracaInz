@@ -4,7 +4,7 @@ import {Link} from 'react-scroll';
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 const ConsoleShippinghChoose= (props)=>{
-    const{whichmodel,setshipping}=props;
+    const{whichmodel,setshipping,setclass}=props;
   
     const[shippingList,setshippingList]=useState([]);
       
@@ -27,7 +27,7 @@ useEffect(() => {
 
 return <Fragment>
 <div className={classes.container_console}>
- <div className={classes.h1}><h1>Jak dostarczysz konsolę?</h1></div>
+ <div className={classes.h1}><h1>Jak dostarczysz przedmiot?</h1></div>
  <hr className={classes.margin}></hr>
  <div className={classes.menu}>
 
@@ -35,7 +35,7 @@ return <Fragment>
  {shippingList.map((shippingList)=>
  <div key={shippingList.id} className={classes.block}>
 
- <a  onClick={() => setshipping(shippingList.id)}>
+ <a  onClick={() => {setshipping(shippingList.id); setclass(true)}}>
  <img src={require("../../Content/Images/"+shippingList.image+".jpg").default}/> 
 <h3 className={classes.console_name}>{shippingList.name}</h3>
 </a>

@@ -2,20 +2,24 @@ import {Fragment, useState,useEffect } from "react";
 import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 import {Link} from 'react-scroll';
 import { createApiEndpoint, ENDPOINTS } from "../../api";
+import axios from "axios";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 
 
 const ConsoleModelChoose = (props)=>{
-    const{whichmodel,setversion,setdefect}=props;
+    const{whichmodel,setversion,setdefect,categoryid,setstep}=props;
     const[consoleList,setconsoleList]=useState([]);
 
-
+console.log(categoryid);
     
 
     
 useEffect(() => {
+   
+
     
-    createApiEndpoint(ENDPOINTS.ProductsToViews).fetchById(whichmodel).then(res=>{
+    createApiEndpoint(ENDPOINTS.ProductsToViews).fetchById(whichmodel+'?category='+categoryid).then(res=>{
         let consoleList=res.data.map(item=>({
             id:item.modlesToViewId,
             consolename:item.name,
@@ -45,7 +49,7 @@ useEffect(() => {
 {consoleList.map((whichmodel)=>
  <div key={whichmodel.id} className={classes.block}>
   
-<a  onClick={() => {setversion(whichmodel.id); setdefect(whichmodel.defectid) } }>
+<a  onClick={() => {setversion(whichmodel.id); setdefect(whichmodel.defectid) ;  setstep(true)  } }>
 <img src={require("../../Content/Images/LogoForNavConsole/"+whichmodel.image+".jpg").default} />
         <h3 className={classes.console_name}>{whichmodel.consolename}</h3>
         </a>

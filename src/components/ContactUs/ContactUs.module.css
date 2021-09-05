@@ -1,0 +1,80 @@
+.container{
+   display:flex;
+   align-items: center;
+   justify-content: space-between;
+   max-width: 1600px;
+   background-color:yellow;
+   text-align: left;  
+   align-items: center; 
+   margin:auto;
+   font-family: 'Titillium Web', sans-serif;
+   font-weight: 650;
+}
+
+.info{
+    color:red;
+}
+
+.form{
+    flex-direction: column;
+    display: flex;
+    max-width: 500px;
+	margin-left: 50px;
+	background: #f4f7f8;
+	border-radius: 8px;
+    padding:30px;
+    font-size: 1.3rem;
+    -webkit-box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.9); 
+    box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.4);
+}
+
+.header{
+font-size: 2.5rem;
+text-align: center;
+}
+
+.form textarea{
+    resize:vertical;
+    max-width: 500px;
+    min-height: 100px;
+}
+
+.form input,textarea{
+  margin-bottom: 30px;
+  -webkit-box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.9); 
+box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.4);
+border: 2px solid #d9e4ff;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+
+.name{
+    display: flex;
+
+   
+}
+.name input{
+    width: 200px;
+}
+.form fieldset{
+    display:  flex;
+    flex-direction: column;
+    border: none;
+    margin:0;
+}
+
+.button{
+    background-color:blue;
+    color:white;
+    justify-content: center;
+    padding:15px;
+    font-size: 1.4rem;
+}
+
+.star{
+    color:red;
+}
+
+.button:hover{
+
+}

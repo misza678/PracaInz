@@ -11,33 +11,24 @@ import { useParams } from "react-router-dom";
 import Form from '../Form/Form'
 
 const ControllerWrapper = props => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [consoleid, setConsoleId] = useState(0);
   const [version, setversion] = useState(0);
   const [defect, setdefect] = useState(0);
   const [shipping, setshipping] = useState(0);
-
-
-  console.log("numer konsoli " + consoleid);
-  console.log("numer wersji " + version);
-
-  console.log(defect);
-  console.log(shipping);
-
   let { mod } = useParams();
-  console.log(mod);
-
-
-
+  const [firststep, setfirststep] = useState(false);
+  const [secondstep, setsecondstep] = useState(false);
+  const [thirdstep, setthirdstep] = useState(false);
+  const [fourthstep, setfourthstep] = useState(false);
   return <Fragment>
 
-    <div style={{
-      backgroundImage: `url(${logoimage})`
-    }} className={classes.wrapper}>
+    <div className={classes.wrapper}>
 
-      <Console1Stage whichConsole={mod} setConsoleId={setConsoleId} />
-     <Controller2Stage whichmodel={consoleid} setversion={setversion} setdefect={setdefect}/>
-
+      <Console1Stage whichConsole={mod} setConsoleId={setConsoleId} setstep={setfirststep}/>
+      {firststep? <Controller2Stage whichmodel={consoleid} setversion={setversion} setdefect={setdefect} categoryid={2} setstep={setsecondstep}/>:null}
+      {secondstep?  <Console3Stage whichmodel={defect} setdefect={setdefect} setstep={setthirdstep} />:null}
+      {thirdstep? <Console4Stage whichmodel={defect} setshipping={setshipping} setclass={setfourthstep}/>:null}
+      {fourthstep?<Link to="/form"  whichconsole={version} whichdefect={defect} whichshipping={shipping} className={classes.nextStep}>Przejdź dalej</Link>:null}
 
     </div>
 

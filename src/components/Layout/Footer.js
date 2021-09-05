@@ -11,7 +11,7 @@ import { SiYoutube } from 'react-icons/si';
 
 const Footer= props => {
     return <Fragment>
-<footer className={classes.footer}>
+<footer >
         <div className={classes.container}>
             <div className={classes.row}>
                 <div className={classes.footer_col}>

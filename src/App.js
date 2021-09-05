@@ -8,7 +8,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Consolewrapper from './components/ConsoleRepair/Consolewrapper';
 import form from './components/Form/Form';
 import controllerwrapper from './components/ControllerRepair/controllerWrapper';
-
+import Contactus from'./components/ContactUs/ContactUs';
 
 
 
@@ -29,6 +29,7 @@ function App() {
             <Route path="/konsole/:mod" exact component={Consolewrapper} />
             <Route path="/form" exact component={form} />
             <Route path="/kontrolery/:mod" exact component={controllerwrapper} />
+            <Route path="/kontakt" exact component={Contactus} />
           </main>
         </Switch>
         <Footer />
