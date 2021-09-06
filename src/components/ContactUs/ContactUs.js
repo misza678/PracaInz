@@ -31,13 +31,30 @@ return <Fragment>
           <textarea  id="text" {...register("text", { required: true })} />
           </fieldset>
 
-
           {errors.exampleRequired && <span>This field is required</span>}
 
           <input className={classes.button} type="submit" value="Wyślij wiadomość" />
         </form>
     <div className={classes.Info}>
-<h1>asdasd</h1>
+<h1>Najczęściej zadawane pytania:</h1>
+<div className={classes.qcontainer}>
+<div className={classes.question}>
+    <p>Jak przygotować paczkę?  </p>
+    <hr className={classes.margin}></hr>
+</div>  
+<div className={classes.question}>
+<p>Jak zlożyć zamówienie?  </p>
+<hr className={classes.margin}></hr>
+</div> 
+<div className={classes.question}>
+<p>Ile trwa naprawa?  </p>
+<hr className={classes.margin}></hr>
+</div> 
+<div className={classes.question}>
+<p>Jak działa skup?  </p>
+<hr className={classes.margin}></hr>
+</div> 
+    </div>
     </div>
     </div>
 </Fragment>

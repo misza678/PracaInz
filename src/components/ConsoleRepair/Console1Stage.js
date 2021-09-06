@@ -40,7 +40,8 @@ const Console1Stage = (props) => {
     return <Fragment>
 
         <div className={classes.container_console}>
-            <div className={classes.h1}><h1>Wybierz swoją konsole!</h1>
+            <div className={classes.h1}>
+                <h1>Wybierz swoją konsole!</h1>
             </div>
             <hr className={classes.margin}></hr>
             <div className={classes.menu}>

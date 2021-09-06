@@ -1,25 +1,30 @@
+
+
+
+
 .container{
    display:flex;
-   align-items: center;
-   justify-content: space-between;
+  
+   justify-content:center ;
    max-width: 1600px;
-   background-color:yellow;
+
    text-align: left;  
-   align-items: center; 
+ 
    margin:auto;
    font-family: 'Titillium Web', sans-serif;
    font-weight: 650;
+   padding-top: 150px;
+   padding-bottom: 150px;
+
 }
 
-.info{
-    color:red;
-}
+
 
 .form{
     flex-direction: column;
     display: flex;
     max-width: 500px;
-	margin-left: 50px;
+
 	background: #f4f7f8;
 	border-radius: 8px;
     padding:30px;
@@ -31,6 +36,7 @@
 .header{
 font-size: 2.5rem;
 text-align: center;
+font-family: 'Hina Mincho', serif;
 }
 
 .form textarea{
@@ -75,6 +81,62 @@ padding-bottom: 15px;
     color:red;
 }
 
-.button:hover{
 
+
+
+.Info{
+    margin-left: 50px;
+    background: hsl(180, 6%, 93%);
+	border-radius: 8px;
+    padding:30px;
+    font-size: 1rem;
+    -webkit-box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.9); 
+    box-shadow: 5px 3px 10px -6px rgba(0,0,0,0.4);
+   
+    font-family: 'Hina Mincho', serif;
+}
+
+
+.question p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+   
+}
+
+.margin {
+ 
+    width: 70%;
+  
+    border:1px solid black;
+
+}
+
+
+.qcontainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+	background: hsl(195, 22%, 96%);
+
+}
+
+
+
+.button:hover,
+.button:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}
+
+.button:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
 }
