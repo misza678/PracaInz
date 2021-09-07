@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <main>
 
-            <Route path="/" exact component={AboutUs} />
+            <Route path="/StronaGlowna" exact component={AboutUs} />
             <Route path="/konsole/:mod" exact component={Consolewrapper} />
             <Route path="/form" exact component={form} />
             <Route path="/kontrolery/:mod" exact component={controllerwrapper} />

@@ -19,10 +19,7 @@ return <Fragment>
 <header className={classes.header}>
     
     <nav className={classes.nav}>
-<a href="/">
-                <img src={logoImage} />
-                <h1>ConsoleStore</h1>
-            </a>
+    <Link className={classes.headerLogo} to="StronaGlowna">ConsoleStore</Link>       
             <div className={classes.menu}>
                 <ul>
                     <li>
