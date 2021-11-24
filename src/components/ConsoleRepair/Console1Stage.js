@@ -1,23 +1,21 @@
 import React, { Component, Fragment, Suspense, useRef, useState, useEffect } from "react";
-import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
-
-import ps4 from '../../Content/Images/LogoForNavConsole/ps4.jpg';
-import ps3 from '../../Content/Images/LogoForNavConsole/ps3.jpg';
-import ps2 from '../../Content/Images/LogoForNavConsole/ps2.jpg';
-import ps1 from '../../Content/Images/LogoForNavConsole/ps1.jpg';
-
-import xboxone from '../../Content/Images/LogoForNavConsole/xboxone.jpg';
-import xbox360 from '../../Content/Images/LogoForNavConsole/xbox360.jpg';
-import xclassic from '../../Content/Images/LogoForNavConsole/xclassic.jpg';
 import { createApiEndpoint, ENDPOINTS } from "../../api";
-
+import classes from '../../components/ConsoleRepair/ConsoleChoose.module.css';
 
 
 
 const Console1Stage = (props) => {
-    const { whichConsole, setConsoleId,setstep } = props;
+    const { whichConsole, setConsoleId,setstep,classChange} = props;
 
     const [consoleList, setconsoleList] = useState([]);
+
+    
+
+
+
+
+
+
 
     useEffect(() => {
         createApiEndpoint(ENDPOINTS.MainProduct).fetchById(whichConsole).then(res => {
@@ -35,30 +33,30 @@ const Console1Stage = (props) => {
 
 
 
-
+console.log(classChange);
 
     return <Fragment>
 
-        <div className={classes.container_console}>
-            <div className={classes.h1}>
-                <h1>Wybierz swoją konsole!</h1>
+        <div className={classChange ?classes.container_consoleCC:classes.container_console}>
+            <div className={classChange ?classes.h1CC:classes.container_h1}>
+                {classChange? null:<h1>Wybierz swoją konsole!</h1>}
             </div>
-            <hr className={classes.margin}></hr>
-            <div className={classes.menu}>
+            {classChange? null:<hr className={classChange ?classes.marginCC:classes.margin}></hr>}
+            <div className={classChange ?classes.menuCC:classes.menu}>
                 {consoleList.map((whichConsole) =>
-                    <div key={whichConsole.id} className={classes.block}>
+                    <div key={whichConsole.id} className={classChange ?classes.blockCC:classes.block}>
                         <a onClick={() => {setConsoleId(whichConsole.id);  setstep(true)  }}>
                             <img src={require("../../Content/Images/LogoForNavConsole/" + whichConsole.image + ".jpg").default} />
-                            <h3 className={classes.console_name}>{whichConsole.consolename}</h3>
+                            <h3 className={classChange ?classes.console_nameCC:classes.console_name}>{whichConsole.consolename}</h3>
                         </a>
                     </div>
                 )}
             </div>
         </div>
     </Fragment>
+
+
 }
-
-
 
 
 export default Console1Stage;

@@ -1,8 +1,10 @@
 
-.body{
+main{
   display: flex;
   position: relative;
  flex-direction: column;
-
-
+max-width: 1600px;
+justify-content: center;
+margin: auto;
 }
+

@@ -9,7 +9,7 @@ import Consolewrapper from './components/ConsoleRepair/Consolewrapper';
 import form from './components/Form/Form';
 import controllerwrapper from './components/ControllerRepair/controllerWrapper';
 import Contactus from'./components/ContactUs/ContactUs';
-
+import CollectionCentre from'./components/CollectionCentre/CollectionCentre';
 
 
 function App() {
@@ -19,22 +19,21 @@ function App() {
 
   return (
     <Router>
-      <div className={'body'}>
-
+      
         <Header />
         <Switch>
+        
           <main>
-
             <Route path="/StronaGlowna" exact component={AboutUs} />
             <Route path="/konsole/:mod" exact component={Consolewrapper} />
             <Route path="/form" exact component={form} />
             <Route path="/kontrolery/:mod" exact component={controllerwrapper} />
             <Route path="/kontakt" exact component={Contactus} />
+            <Route path="/skup" exact component={CollectionCentre} />
           </main>
         </Switch>
         <Footer />
-
-      </div>
+      
     </Router>
   );
 }

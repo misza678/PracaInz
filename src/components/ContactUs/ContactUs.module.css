@@ -4,12 +4,9 @@
 
 .container{
    display:flex;
-  
    justify-content:center ;
-   max-width: 1600px;
 
    text-align: left;  
- 
    margin:auto;
    font-family: 'Titillium Web', sans-serif;
    font-weight: 650;
@@ -20,8 +17,8 @@
 
 
 
-.form{
-    flex-direction: column;
+.form{ 
+   flex-direction: column;
     display: flex;
     max-width: 500px;
 

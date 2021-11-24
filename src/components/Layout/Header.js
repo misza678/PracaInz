@@ -18,7 +18,7 @@ import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
 return <Fragment>
 <header className={classes.header}>
     
-    <nav className={classes.nav}>
+    <nav>
     <Link className={classes.headerLogo} to="StronaGlowna">ConsoleStore</Link>       
             <div className={classes.menu}>
                 <ul>
@@ -41,7 +41,7 @@ return <Fragment>
                         </ul>
                     </li>
                     <li><Link to="/konsole/playstation">Market</Link></li>
-                    <li><Link to="/konsole/playstation">Skup</Link></li>
+                    <li><Link to="/skup">Skup</Link></li>
                     <li><Link to="/kontakt">Kontakt</Link></li>
                 </ul>
             </div>
