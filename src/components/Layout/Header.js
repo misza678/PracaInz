@@ -1,56 +1,46 @@
-import {Fragment} from "react";
-import logoImage from '../../Content/Images/playstation.png';
-import classes from '../../components/Layout/header.module.css';
-import { FaPlaystation } from 'react-icons/fa';
-import { FaXbox } from 'react-icons/fa';
-import { SiNintendoswitch } from 'react-icons/si';
-import { BsThreeDots } from 'react-icons/bs';
-import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
+import { Fragment, useEffect, useState } from "react";
+import classes from "../../components/Layout/header.module.css";
+import { Link } from "react-router-dom";
+import authService from "../Authentication/AuthService";
+const Header = (props) => {
+  return (
+    <Fragment>
+      <header className={classes.header}>
+        <nav>
+          <Link className={classes.headerLogo} to="/StronaGlowna">
+            ConsoleStore
+          </Link>
+          <div className={classes.menu}>
+            <ul>
+              <li>
+                <Link to="/konsole">KONSOLE</Link>
+              </li>
+              <li>
+                <Link to="/kontrolery">KONTROLERY</Link>
+              </li>
 
+              <li>
+                <Link to="/skup">SKUP</Link>
+              </li>
+              <li>
+                <Link to="/kontakt">KONTAKT</Link>
+              </li>
 
-
-
-
- function Header(){
-   
-
-
-return <Fragment>
-<header className={classes.header}>
-    
-    <nav>
-    <Link className={classes.headerLogo} to="StronaGlowna">ConsoleStore</Link>       
-            <div className={classes.menu}>
-                <ul>
-                    <li>
-                        <a className={classes.napis} >Konsole</a>
-                        <ul className={classes.list}>
-                            <li><FaPlaystation /><Link to="/konsole/playstation">PLAYSTATION</Link></li>
-                            <li><FaXbox/><Link to="/konsole/xbox">XBOX</Link></li>
-                            <li><SiNintendoswitch/><Link to="/konsole/nintendo">NINTENDO</Link></li>
-                         
-                        </ul>
-                    </li>
-                    <li>
-                        <a className={classes.napis} >Kontrolery</a>
-                        <ul className={classes.list}>
-                        <li><FaPlaystation /><Link to="/kontrolery/playstation">PLAYSTATION</Link></li>
-                            <li><FaXbox/><Link to="/kontrolery/xbox">XBOX</Link></li>
-                            <li><SiNintendoswitch/><Link to="/kontrolery/nintendo">NINTENDO</Link></li>
-                           
-                        </ul>
-                    </li>
-                    <li><Link to="/konsole/playstation">Market</Link></li>
-                    <li><Link to="/skup">Skup</Link></li>
-                    <li><Link to="/kontakt">Kontakt</Link></li>
-                </ul>
-            </div>
-            </nav>
-            
-</header>
-
-</Fragment>
-
+              {props.user ? (
+                <li className={classes.Account}>
+                  <Link to="/konto">MOJE KONTO</Link>
+                </li>
+              ) : (
+                <li className={classes.Account}>
+                  <Link to="/login">ZALOGUJ SIĘ</Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </Fragment>
+  );
 };
 
 export default Header;

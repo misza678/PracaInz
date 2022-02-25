@@ -3,14 +3,7 @@ import classes from "../../components/ConsoleRepair/ConsoleChoose.module.css";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 const Controller2stage = (props) => {
-  const {
-    whichmodel,
-    setversion,
-    setdefect,
-    categoryid,
-    setStep,
-    classChange,
-  } = props;
+  const { whichmodel, categoryid, classChange, setFourthStep } = props;
   const [consoleList, setconsoleList] = useState([]);
 
   useEffect(() => {
@@ -50,9 +43,8 @@ const Controller2stage = (props) => {
             >
               <a
                 onClick={() => {
-                  setversion(whichmodel.id);
-                  setdefect(whichmodel.defectid);
-                  setStep(true);
+                  whichmodel(whichmodel.id);
+                  setFourthStep(true);
                 }}
               >
                 <img

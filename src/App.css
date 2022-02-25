@@ -1,10 +1,6 @@
-
-main{
+main {
   display: flex;
-  position: relative;
- flex-direction: column;
-max-width: 1600px;
-justify-content: center;
-margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-

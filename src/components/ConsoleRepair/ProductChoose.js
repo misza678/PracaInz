@@ -1,33 +1,25 @@
-import { Fragment, useState, useEffect } from "react";
-import classes from "../../components/ConsoleRepair/ConsoleChoose.module.css";
+import React, { Fragment, useState, useEffect } from "react";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
+import classes from "../../components/ConsoleRepair/ConsoleChoose.module.css";
 
-const Controller2stage = (props) => {
-  const {
-    whichmodel,
-    setversion,
-    setdefect,
-    categoryid,
-    setStep,
-    classChange,
-  } = props;
+const ProductChoose = (props) => {
+  const { whichConsole, setProductID, setStep, classChange } = props;
+
   const [consoleList, setconsoleList] = useState([]);
 
   useEffect(() => {
-    createApiEndpoint(ENDPOINTS.ProductsToViews)
-      .fetchById(whichmodel + "?category=" + categoryid)
+    createApiEndpoint(ENDPOINTS.Product)
+      .fetchById(whichConsole)
       .then((res) => {
         let consoleList = res.data.map((item) => ({
-          id: item.modlesToViewId,
+          id: item.productID,
           consolename: item.name,
           image: item.photoSRC,
-          defectid: item.defectType,
         }));
         setconsoleList(consoleList);
       })
       .catch((err) => console.log(err));
-  }, [whichmodel > 0]);
-
+  }, [whichConsole > 0]);
   return (
     <Fragment>
       <div
@@ -35,30 +27,28 @@ const Controller2stage = (props) => {
           classChange ? classes.container_consoleCC : classes.container_console
         }
       >
-        <div className={classChange ? classes.h1CC : classes.h1}>
-          <h1>Jaki model?</h1>
+        <div className={classChange ? classes.h1CC : classes.container_h1}>
+          {classChange ? null : <h1>Wybierz swoją konsole!</h1>}
         </div>
         {classChange ? null : (
           <hr className={classChange ? classes.marginCC : classes.margin}></hr>
         )}
-
         <div className={classChange ? classes.menuCC : classes.menu}>
-          {consoleList.map((whichmodel) => (
+          {consoleList.map((product) => (
             <div
-              key={whichmodel.id}
+              key={product.id}
               className={classChange ? classes.blockCC : classes.block}
             >
               <a
                 onClick={() => {
-                  setversion(whichmodel.id);
-                  setdefect(whichmodel.defectid);
+                  setProductID(product.id);
                   setStep(true);
                 }}
               >
                 <img
                   src={
-                    require("../../Content/Images/LogoForNavController/" +
-                      whichmodel.image +
+                    require("../../Content/Images/LogoForNavConsole/" +
+                      product.image +
                       ".jpg").default
                   }
                 />
@@ -67,7 +57,7 @@ const Controller2stage = (props) => {
                     classChange ? classes.console_nameCC : classes.console_name
                   }
                 >
-                  {whichmodel.consolename}
+                  {product.consolename}
                 </h3>
               </a>
             </div>
@@ -78,4 +68,4 @@ const Controller2stage = (props) => {
   );
 };
 
-export default Controller2stage;
+export default ProductChoose;

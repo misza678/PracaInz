@@ -1,0 +1,11 @@
+.SectionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #021c22;
+  width: 100%;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
