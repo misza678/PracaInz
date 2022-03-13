@@ -49,9 +49,8 @@ const Controller2stage = (props) => {
               >
                 <img
                   src={
-                    require("../../Content/Images/LogoForNavController/" +
-                      whichmodel.image +
-                      ".jpg").default
+                    require("../../Content/Images/" + whichmodel.image + ".jpg")
+                      .default
                   }
                 />
                 <h3

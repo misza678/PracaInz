@@ -9,13 +9,13 @@ const MyAccountMenu = (props) => {
             <tbody>
               <tr className={classes.Table}>
                 <th>
-                  <a href="konto/naprawy">Moje zlecenia naprawy</a>
+                  <a href="/konto/naprawy">Moje zlecenia naprawy</a>
                 </th>
                 <th>
-                  <a href="konto/skup">Moje zlecenia wyceny</a>
+                  <a href="/konto/skup">Moje zlecenia wyceny</a>
                 </th>
                 <th>
-                  <a href="konto/wysylka">Dane do wysyłki</a>
+                  <a href="/konto/wysylka">Dane do wysyłki</a>
                 </th>
               </tr>
             </tbody>

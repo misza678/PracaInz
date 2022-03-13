@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import classes from "./MyAccountSection.module.css";
 import { useForm } from "react-hook-form";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
-
+import MyAccountNoData from "./MyAccountNoData";
 const MyAccountSection = (props) => {
   const type = props.type;
   console.log(type);
@@ -80,81 +80,7 @@ const MyAccountSection = (props) => {
           <div className={classes.Container}>sdf</div>
         ) : null}
         {type === "skup" ? <div className={classes.Container}></div> : null}
-        {type === "wysylka" ? (
-          <div className={classes.FormContainer}>
-            <h1>Uzupełnij dane do wysyłki</h1>
-            {address.map((address) => (
-              <form onSubmit={handleSubmit(editAddress)}>
-                <input
-                  placeholder="Imię:"
-                  defaultValue={address.name}
-                  id="firstName"
-                  {...register("firstName", { required: true })}
-                />
-
-                <input
-                  id="lastName"
-                  defaultValue={address.lastname}
-                  placeholder="Nazwisko:"
-                  {...register("lastName", { required: true })}
-                />
-
-                <input
-                  placeholder="Email:"
-                  id="email"
-                  defaultValue={address.email}
-                  {...register("email", { required: true })}
-                />
-
-                <input
-                  placeholder="Numer telefonu:"
-                  id="phone"
-                  defaultValue={address.phone}
-                  {...register("phone", { required: true })}
-                />
-
-                <input
-                  placeholder="Ulica:"
-                  id="street"
-                  defaultValue={address.street}
-                  {...register("street", { required: true })}
-                />
-
-                <input
-                  placeholder="Nr domu:"
-                  id="housenumber"
-                  defaultValue={address.housenumber}
-                  {...register("housenumber", { required: true })}
-                />
-
-                <input
-                  placeholder="Nr mieszkania:"
-                  id="flatnumber"
-                  defaultValue={address.flat}
-                  {...register("flatnumber")}
-                />
-
-                <input
-                  placeholder="Miasto:"
-                  id="city"
-                  defaultValue={address.city}
-                  {...register("city", { required: true })}
-                />
-
-                <input
-                  placeholder="Kod pocztowy:"
-                  id="postaladdress"
-                  defaultValue={address.postal}
-                  {...register("postaladdress", { required: true })}
-                />
-
-                {errors.exampleRequired && <span>This field is required</span>}
-
-                <input type="submit" />
-              </form>
-            ))}
-          </div>
-        ) : null}
+        {type === "wysylka" ? <MyAccountNoData /> : null}
       </section>
     </Fragment>
   );

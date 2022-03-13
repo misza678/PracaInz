@@ -3,7 +3,7 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 import classes from "../../components/ConsoleRepair/ConsoleChoose.module.css";
 
 const ProductChoose = (props) => {
-  const { whichConsole, setProductID, setStep, classChange } = props;
+  const { whichConsole, setProductID, setStep } = props;
 
   const [consoleList, setconsoleList] = useState([]);
 
@@ -22,23 +22,14 @@ const ProductChoose = (props) => {
   }, [whichConsole > 0]);
   return (
     <Fragment>
-      <div
-        className={
-          classChange ? classes.container_consoleCC : classes.container_console
-        }
-      >
-        <div className={classChange ? classes.h1CC : classes.container_h1}>
-          {classChange ? null : <h1>Wybierz swoją konsole!</h1>}
+      <div className={classes.container_console}>
+        <div className={classes.container_h1}>
+          <h1>Wybierz swoją konsole!</h1>
         </div>
-        {classChange ? null : (
-          <hr className={classChange ? classes.marginCC : classes.margin}></hr>
-        )}
-        <div className={classChange ? classes.menuCC : classes.menu}>
+        <hr className={classes.margin}></hr>
+        <div className={classes.menu}>
           {consoleList.map((product) => (
-            <div
-              key={product.id}
-              className={classChange ? classes.blockCC : classes.block}
-            >
+            <div key={product.id} className={classes.block}>
               <a
                 onClick={() => {
                   setProductID(product.id);
@@ -47,18 +38,11 @@ const ProductChoose = (props) => {
               >
                 <img
                   src={
-                    require("../../Content/Images/LogoForNavConsole/" +
-                      product.image +
-                      ".jpg").default
+                    require("../../Content/Images/" + product.image + ".jpg")
+                      .default
                   }
                 />
-                <h3
-                  className={
-                    classChange ? classes.console_nameCC : classes.console_name
-                  }
-                >
-                  {product.consolename}
-                </h3>
+                <h3 className={classes.console_name}>{product.consolename}</h3>
               </a>
             </div>
           ))}

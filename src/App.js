@@ -6,7 +6,7 @@ import AuthService from "./components/Authentication/AuthService";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import AboutUsWrapper from "./components/AboutUs/AboutUsWrapper";
 import ConsoleWrapper from "./components/ConsoleRepair/ConsoleWrapper";
-import OrderForm from "./components/Form/OrderForm";
+import OrderForm from "./components/Form/OrderFormWrapper";
 import controllerwrapper from "./components/ControllerRepair/controllerWrapper";
 import Contactus from "./components/ContactUs/ContactUs";
 import CollectionCentreWrapper from "./components/CollectionCentre/CollectionCentreWrapper";

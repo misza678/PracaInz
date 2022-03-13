@@ -13,9 +13,9 @@ const Banner = (props) => {
       >
         <div className={classes.Container}>
           <div className={classes.TextSection}>
-            <h1>EKSPERCI W NAPRAWIE:</h1>
-            <span></span>
-            <h2>Wykwalifikowani i doświadczeni pracownicy:</h2>
+            <h1>EKSPERCI W NAPRAWIE KONSOLI I KONTROLERÓW</h1>
+
+            <h3>Wykwalifikowani i doświadczeni pracownicy:</h3>
 
             <p>
               <img src={check} /> 6 miesięcy gwarancji na większość napraw
@@ -23,7 +23,7 @@ const Banner = (props) => {
             <p>
               <img src={check} /> Ponad 10 lat doświadczenia
             </p>
-            <h2>Naprawiamy:</h2>
+            <h3>Naprawiamy:</h3>
             <p>
               <img src={check} />
               Konsole

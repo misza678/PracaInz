@@ -3,6 +3,7 @@ import classes from "../ContactUs/ContactUs.module.css";
 import { useForm } from "react-hook-form";
 import background from "../../Content/Images/background.jpg";
 import authService from "../Authentication/AuthService";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = (props) => {
   const {
@@ -11,9 +12,31 @@ const ContactUs = (props) => {
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    authService.AuthVerify();
-  });
+  const EmailSend = (data) => {
+    const templateParams = {
+      name: data.firstName,
+      lastname: data.lastName,
+      message: data.message,
+      email: data.email,
+    };
+
+    emailjs
+      .send(
+        "service_2czfcnm",
+        "template_2agzleg",
+        templateParams,
+        "KDz00jkvZpLW3ZnGY"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (err) => {
+          console.log("FAILED...", err);
+        }
+      );
+  };
+
   return (
     <Fragment>
       <div className={classes.SectionContainer}>
@@ -21,7 +44,7 @@ const ContactUs = (props) => {
           <h1 className={classes.header}>Skontaktuj się z nami:</h1>
         </div>
         <div className={classes.container}>
-          <form className={classes.form} onSubmit={handleSubmit()}>
+          <form className={classes.form} onSubmit={handleSubmit(EmailSend)}>
             <div className={classes.name}>
               <fieldset>
                 <label htmlFor="firstName">
@@ -52,7 +75,10 @@ const ContactUs = (props) => {
               <label htmlFor="text">
                 Wiadomość<span className={classes.star}>*</span>
               </label>
-              <textarea id="text" {...register("text", { required: true })} />
+              <textarea
+                id="text"
+                {...register("message", { required: true })}
+              />
             </fieldset>
 
             {errors.exampleRequired && <span>This field is required</span>}

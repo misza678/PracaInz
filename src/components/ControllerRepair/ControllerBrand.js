@@ -5,14 +5,13 @@ import React, { Fragment, useState, useEffect } from "react";
 const ChooseBrandRepair = (props) => {
   const [companieslist, setCompanieslist] = useState([]);
 
-  useEffect(() => {
-    createApiEndpoint(ENDPOINTS.Companies)
+  useEffect(async () => {
+    await createApiEndpoint(ENDPOINTS.Companies)
       .fetchAll()
       .then((res) => {
         let companieslist = res.data.map((item) => ({
           id: item.companyId,
           name: item.name,
-          image: item.photoSrc,
         }));
         setCompanieslist(companieslist);
         console.log("test");
@@ -29,7 +28,7 @@ const ChooseBrandRepair = (props) => {
             <a className={classes.Card} href={"/kontrolery/" + companies.name}>
               <img
                 src={
-                  require("../../Content/Images/" + companies.image + ".png")
+                  require("../../Content/Images/" + companies.name + ".png")
                     .default
                 }
               />

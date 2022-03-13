@@ -10,12 +10,10 @@ const ChooseBrandRepair = (props) => {
       .fetchAll()
       .then((res) => {
         let companieslist = res.data.map((item) => ({
-          id: item.companyId,
+          id: item.companyID,
           name: item.name,
-          image: item.photoSrc,
         }));
         setCompanieslist(companieslist);
-        console.log("test");
       })
       .catch((err) => console.log(err));
   }, [companieslist == [0]]);
@@ -35,7 +33,7 @@ const ChooseBrandRepair = (props) => {
             >
               <img
                 src={
-                  require("../../Content/Images/" + companies.image + ".png")
+                  require("../../Content/Images/" + companies.name + ".png")
                     .default
                 }
               />

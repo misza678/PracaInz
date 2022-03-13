@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import classes from "../../components/ConsoleRepair/ConsoleChoose.module.css";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 
-const ModelChoose = (props) => {
+const ControllerChoose = (props) => {
   const { productID, setModelID, category, setStep } = props;
   const [consoleList, setconsoleList] = useState([]);
 
@@ -56,4 +56,4 @@ const ModelChoose = (props) => {
   );
 };
 
-export default ModelChoose;
+export default ControllerChoose;
