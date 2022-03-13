@@ -8,7 +8,6 @@ import OrderLoginIn from "./OrderLoginIn";
 const OrderForm = (props) => {
   const handle = useLocation();
   const [isloggedin, setIsloggedin] = useState(false);
-  const [addressChange, setAddressChange] = useState(false);
   const [addressError, setAddressError] = useState(undefined);
   const [address, setAddress] = useState([]);
   const [redirect, setRedirect] = useState(false);
@@ -21,38 +20,6 @@ const OrderForm = (props) => {
     mode: "onBlur",
   });
 
-  const {
-    register: register2,
-    formState: { errors: errors2 },
-    handleSubmit: handleSubmit2,
-  } = useForm({
-    mode: "onBlur",
-  });
-  const {
-    register: register3,
-    formState: { errors: errors3 },
-    handleSubmit: handleSubmit3,
-  } = useForm({
-    mode: "onBlur",
-  });
-
-  const onSubmit = (data) => {
-    let credentials = {
-      username: data.username,
-      password: data.password,
-    };
-
-    createApiEndpoint(ENDPOINTS.Login)
-      .create(credentials)
-      .then((response) => {
-        if (response.data.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-          setIsloggedin(true);
-        }
-        return response.data;
-      })
-      .catch((err) => console.log(err));
-  };
   useEffect(() => {
     createApiEndpoint(ENDPOINTS.Customer)
       .fetchById(0)
@@ -84,10 +51,11 @@ const OrderForm = (props) => {
     console.log(customer);
     let repair = {
       repairID: 0,
-      productID: handle.modelid,
+      modelID: handle.modelid,
       shippingMetodID: handle.shippingid,
       customerID: customer,
       defectID: handle.defectid,
+      statusID: 1,
       price: 0,
       description: data.description,
     };

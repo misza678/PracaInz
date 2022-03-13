@@ -8,9 +8,6 @@ import OrderLoginIn from "./OrderLoginIn";
 const OrderForm = (props) => {
   const handle = useLocation();
   const [isloggedin, setIsloggedin] = useState(false);
-  const [addressChange, setAddressChange] = useState(false);
-  const [addressError, setAddressError] = useState(undefined);
-  const [address, setAddress] = useState([]);
   const [redirect, setRedirect] = useState(false);
   const [repairSuccessful, setrepairSuccessful] = useState(false);
   const {
