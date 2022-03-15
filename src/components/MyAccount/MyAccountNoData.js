@@ -8,7 +8,7 @@ const MyAccountSectionNoData = (props) => {
   console.log(type);
 
   const [addressID, setAddressID] = useState(0);
-
+  const [success, setSuccess] = useState(false);
   const AddAddress = (data) => {
     let newaddress = {
       addressID: 0,
@@ -39,7 +39,9 @@ const MyAccountSectionNoData = (props) => {
     if (addressID != 0) {
       createApiEndpoint(ENDPOINTS.Customer)
         .create(Customer)
-        .then((response) => {})
+        .then((res) => {
+          setSuccess(true);
+        })
         .catch((err) => console.log(err));
     } else {
       console.log(addressID);
@@ -55,6 +57,7 @@ const MyAccountSectionNoData = (props) => {
   return (
     <Fragment>
       <div className={classes.FormContainer}>
+        {success ? <h1 className={classes.Header}>Adres zmieniony</h1> : null}
         <h1>Uzupełnij dane do wysyłki</h1>
         <form onSubmit={handleSubmit(AddAddress)}>
           <input

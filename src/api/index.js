@@ -13,6 +13,8 @@ export const ENDPOINTS = {
   Address: "Addresses",
   Customer: "Customers",
   Model: "Models",
+  Status: "Status",
+  Collection: "CollectionItems",
 };
 
 export const createApiEndpoint = (endpoint) => {
@@ -21,7 +23,6 @@ export const createApiEndpoint = (endpoint) => {
   return {
     fetchAll: () => axios.get(url, { headers: authHeader() }),
     fetchById: (id) => axios.get(url + id, { headers: authHeader() }),
-
     create: (newRecord) =>
       axios.post(url, newRecord, { headers: authHeader() }),
     update: (id, updatedRecord) =>

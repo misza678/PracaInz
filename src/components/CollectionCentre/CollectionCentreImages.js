@@ -68,7 +68,7 @@ const CollectionCentreImages = (props) => {
           </div>
         )}
       </ImageUploading>
-      <button className={classes.Buttons} onClick={() => update()}>
+      <button className={classes.nextStep} onClick={() => update()}>
         wyslij
       </button>
     </Fragment>

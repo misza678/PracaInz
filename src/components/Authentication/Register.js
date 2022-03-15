@@ -28,7 +28,7 @@ const Register = () => {
       .catch((err) => console.log(err));
   };
   if (redirect) {
-    return <Redirect to="StronaGlowna" />;
+    return <Redirect to="login" />;
   }
   return (
     <Fragment>

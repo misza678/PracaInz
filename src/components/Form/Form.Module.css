@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   width: 80%;
-  height: 1200px;
+  height: 1600px;
   background-color: #f4f6f8;
   border-radius: 100px;
   display: flex;
@@ -79,6 +79,7 @@
 .Header {
   color: black;
   font-weight: 900;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-top: 10%;
+  text-align: center;
 }

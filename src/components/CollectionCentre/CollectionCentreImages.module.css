@@ -51,3 +51,46 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.nextStep {
+  width: 30%;
+  margin: 2% 0 2% 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
+  background-color: #9bb4b6;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  min-width: 300px;
+  min-height: 4rem;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.nextStep:hover,
+.nextStep:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.nextStep:hover {
+  transform: translateY(-1px);
+}
+
+.nextStep:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
