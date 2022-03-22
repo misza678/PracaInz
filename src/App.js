@@ -15,6 +15,7 @@ import Register from "./components/Authentication/Register";
 import MyAccount from "./components/MyAccount/MyAccountWrapper";
 import Employee from "./components/Employee/Employee";
 import Details from "./components/Employee/OrderDetails";
+import MyaccountOrderDetails from "./components/MyAccount/MyAccountOrderDetails";
 function App() {
   const [currentUser, setCurrentUser] = useState(false);
   const user = AuthService.getCurrentUser();
@@ -47,7 +48,8 @@ function App() {
         <Route path="/konto/:mod" exact component={MyAccount} />
         <Route path="/login" exact component={Login} />
         <Route path="/rejestracja" exact component={Register} />
-        <Route path="/szczegoly" exact component={Details} />
+        <Route path="/pracownik/szczegoly" exact component={Details} />
+        <Route path="/szczegoly" exact component={MyaccountOrderDetails} />
         <Route path="/pracownik" exact component={Employee} />
       </main>
 

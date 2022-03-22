@@ -4,7 +4,6 @@ import classes from "../ConsoleRepair/ConsoleWrapper.module.css";
 import CollectionCentreWithController from "./CollectionCentreWithController";
 import CollectionCentreCategory from "../CollectionCentre/CollectionCentreCategory";
 import CollectionCentreCompany from "../CollectionCentre/CollectionCentreCompany";
-import CollectionCentreControllers from "./CollectionCentreControllers";
 import CollectionCentreImages from "./CollectionCentreImages";
 import ModelChoose from "../ConsoleRepair/ModelChoose";
 

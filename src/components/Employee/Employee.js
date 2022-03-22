@@ -65,7 +65,7 @@ const EmployeeRepairs = (props) => {
               <Link
                 className={classes.button}
                 to={{
-                  pathname: "/szczegoly",
+                  pathname: "/pracownik/szczegoly",
                   table: item,
                 }}
               >
