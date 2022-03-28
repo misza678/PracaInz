@@ -11,7 +11,7 @@ const Header = (props) => {
       setCurrentUser(true);
       console.log(currentUser);
     } else setCurrentUser(false);
-  }, currentUser);
+  }, []);
   return (
     <Fragment>
       <header className={classes.header}>

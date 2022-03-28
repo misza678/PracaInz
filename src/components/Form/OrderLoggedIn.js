@@ -71,7 +71,6 @@ const OrderForm = (props) => {
   useEffect(() => {
     if (authService.getCurrentUser() !== null) {
       setIsloggedin(true);
-      console.log(isloggedin);
     }
   }, []);
   useEffect(() => {
@@ -89,10 +88,14 @@ const OrderForm = (props) => {
             <h1 className={classes.Header}>Zamówienie przyjęte</h1>
           ) : null}
           {address.map((address) => (
-            <form className={classes.form} onSubmit={handleSubmit(addRepair)}>
+            <form
+              key={address.id}
+              className={classes.form}
+              onSubmit={handleSubmit(addRepair)}
+            >
               <h2 className={classes.Header}>Sprawdź dane:</h2>
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Imię:"
                 defaultValue={address.name}
                 id="firstName"
@@ -100,7 +103,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 id="lastName"
                 defaultValue={address.lastname}
                 placeholder="Nazwisko:"
@@ -108,7 +111,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Email:"
                 id="email"
                 defaultValue={address.email}
@@ -116,7 +119,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Numer telefonu:"
                 id="phone"
                 defaultValue={address.phone}
@@ -124,7 +127,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Ulica:"
                 id="street"
                 defaultValue={address.street}
@@ -132,7 +135,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Nr domu:"
                 id="housenumber"
                 defaultValue={address.housenumber}
@@ -140,7 +143,7 @@ const OrderForm = (props) => {
               />
 
               <input
-                readonly="readonly"
+                readOnly="readOnly"
                 placeholder="Nr mieszkania:"
                 id="flatnumber"
                 defaultValue={address.flat}
@@ -149,7 +152,7 @@ const OrderForm = (props) => {
 
               <input
                 placeholder="Miasto:"
-                readonly="readonly"
+                readOnly="readOnly"
                 id="city"
                 defaultValue={address.city}
                 {...register("city", { required: true })}
@@ -157,7 +160,7 @@ const OrderForm = (props) => {
 
               <input
                 placeholder="Kod pocztowy:"
-                readonly="readonly"
+                readOnly="readOnly"
                 id="postaladdress"
                 defaultValue={address.postal}
                 {...register("postaladdress", { required: true })}
