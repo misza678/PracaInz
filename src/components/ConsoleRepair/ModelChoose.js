@@ -39,6 +39,7 @@ const ModelChoose = (props) => {
                 }}
               >
                 <img
+                  alt=""
                   src={
                     require("../../Content/Images/" + whichmodel.image + ".jpg")
                       .default

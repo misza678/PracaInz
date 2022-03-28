@@ -5,7 +5,7 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 import authService from "../Authentication/AuthService";
 import { useLocation, Redirect } from "react-router-dom";
 
-const OrderForm = (props) => {
+const CollectionQuest = (props) => {
   const handle = useLocation();
   const [isloggedin, setIsloggedin] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -42,20 +42,15 @@ const OrderForm = (props) => {
         createApiEndpoint(ENDPOINTS.Customer)
           .create(Customer)
           .then((response) => {
-            data.CustomerID = response.data.customerID;
-
-            let repair = {
-              repairID: 0,
+            let collectionitem = {
+              collectionItemID: 0,
               modelID: handle.modelid,
-              shippingMetodID: handle.shippingid,
               customerID: response.data.customerID,
-              defectID: handle.defectid,
-              price: 0,
-              description: data.description,
+              withController: handle.withController,
               statusID: 1,
             };
-            createApiEndpoint(ENDPOINTS.Repair)
-              .create(repair)
+            createApiEndpoint(ENDPOINTS.Collection)
+              .create(collectionitem)
               .then((res) => {
                 setSuccess(true);
               })
@@ -83,7 +78,7 @@ const OrderForm = (props) => {
       <div className={classes.Container}>
         <div className={classes.FormContainer}>
           {success ? (
-            <h1 className={classes.Header}>Zamówienie przyjęte</h1>
+            <h1 className={classes.Header}>Zlecenie przyjęte</h1>
           ) : null}
           <form
             className={classes.form}
@@ -143,12 +138,6 @@ const OrderForm = (props) => {
               id="postaladdress"
               {...register("postaladdress", { required: true })}
             />
-            <textarea
-              id="description"
-              type="text"
-              placeholder="Opis usterki(opcjonalnie):"
-              {...register("description")}
-            />
 
             {errors.exampleRequired && <span>This field is required</span>}
             <div className={classes.Buttons}>
@@ -169,4 +158,4 @@ const OrderForm = (props) => {
   );
 };
 
-export default OrderForm;
+export default CollectionQuest;

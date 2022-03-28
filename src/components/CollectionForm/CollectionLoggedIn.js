@@ -5,7 +5,7 @@ import { createApiEndpoint, ENDPOINTS } from "../../api";
 import authService from "../Authentication/AuthService";
 import { useLocation, Redirect } from "react-router-dom";
 
-const OrderForm = (props) => {
+const CollectionLoggedIn = (props) => {
   const handle = useLocation();
   const [isloggedin, setIsloggedin] = useState(false);
   const [addressError, setAddressError] = useState(undefined);
@@ -40,6 +40,7 @@ const OrderForm = (props) => {
           },
         ];
         setAddress(customer);
+        console.log(customer);
       })
       .catch((err) => {
         setAddressError(true);
@@ -49,18 +50,15 @@ const OrderForm = (props) => {
 
   const addRepair = (data) => {
     const customer = address.map((id) => id.customerid).toString();
-    let repair = {
-      repairID: 0,
+    let collectionitem = {
+      collectionItemID: 0,
       modelID: handle.modelid,
-      shippingMetodID: handle.shippingid,
       customerID: customer,
-      defectID: handle.defectid,
+      withController: handle.withController,
       statusID: 1,
-      price: 0,
-      description: data.description,
     };
-    createApiEndpoint(ENDPOINTS.Repair)
-      .create(repair)
+    createApiEndpoint(ENDPOINTS.Collection)
+      .create(collectionitem)
       .then((res) => {
         setrepairSuccessful(true);
         setIsloggedin(false);
@@ -86,7 +84,7 @@ const OrderForm = (props) => {
       <div className={classes.Container}>
         <div className={classes.FormContainer}>
           {repairSuccessful ? (
-            <h1 className={classes.Header}>Zamówienie przyjęte</h1>
+            <h1 className={classes.Header}>Zlecenie przyjęte</h1>
           ) : null}
           {address.map((address) => (
             <form className={classes.form} onSubmit={handleSubmit(addRepair)}>
@@ -162,13 +160,6 @@ const OrderForm = (props) => {
                 defaultValue={address.postal}
                 {...register("postaladdress", { required: true })}
               />
-              <textarea
-                id="description"
-                type="text"
-                placeholder="Opis usterki(opcjonalnie):"
-                {...register("description")}
-              />
-
               {errors.exampleRequired && <span>This field is required</span>}
               <div className={classes.Buttons}>
                 <button
@@ -189,4 +180,4 @@ const OrderForm = (props) => {
   );
 };
 
-export default OrderForm;
+export default CollectionLoggedIn;

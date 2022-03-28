@@ -10,11 +10,10 @@ const ChooseBrandRepair = (props) => {
       .fetchAll()
       .then((res) => {
         let companieslist = res.data.map((item) => ({
-          id: item.companyId,
+          id: item.companyID,
           name: item.name,
         }));
         setCompanieslist(companieslist);
-        console.log("test");
       })
       .catch((err) => console.log(err));
   }, [companieslist === [0]]);
@@ -24,9 +23,10 @@ const ChooseBrandRepair = (props) => {
       <h1>Wybierz producenta konsoli:</h1>
       <div className={classes.CompanyContainer}>
         {companieslist.map((companies) => (
-          <div className={classes.Logo} key={companies.id}>
+          <div key={companies.id} className={classes.Logo}>
             <a href={"/konsole/" + companies.name}>
               <img
+                alt=""
                 src={
                   require("../../Content/Images/" + companies.name + ".png")
                     .default

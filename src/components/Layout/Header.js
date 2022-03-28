@@ -1,8 +1,17 @@
 import { Fragment, useEffect, useState } from "react";
 import classes from "../../components/Layout/header.module.css";
 import { Link } from "react-router-dom";
-import authService from "../Authentication/AuthService";
+import AuthService from "../Authentication/AuthService";
 const Header = (props) => {
+  const [currentUser, setCurrentUser] = useState(false);
+
+  useEffect(() => {
+    const res = AuthService.AuthVerify();
+    if (res === false) {
+      setCurrentUser(true);
+      console.log(currentUser);
+    } else setCurrentUser(false);
+  }, currentUser);
   return (
     <Fragment>
       <header className={classes.header}>
@@ -26,13 +35,20 @@ const Header = (props) => {
                 <Link to="/kontakt">KONTAKT</Link>
               </li>
 
-              {props.user ? (
+              {currentUser ? (
                 <li className={classes.Account}>
                   <Link to="/konto">MOJE KONTO</Link>
                 </li>
               ) : (
                 <li className={classes.Account}>
-                  <Link to="/login">ZALOGUJ SIĘ</Link>
+                  <Link
+                    to={{
+                      pathname: "/login",
+                      currentuser: setCurrentUser,
+                    }}
+                  >
+                    ZALOGUJ SIĘ
+                  </Link>
                 </li>
               )}
             </ul>

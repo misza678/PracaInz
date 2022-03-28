@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import classes from "../../components/Form/Form.module.css";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 import { Link } from "react-router-dom";
-const OrderForm = (props) => {
+const CollectionLoginIn = (props) => {
   const { setIsloggedin } = props;
 
   const {
@@ -73,4 +73,4 @@ const OrderForm = (props) => {
   );
 };
 
-export default OrderForm;
+export default CollectionLoginIn;

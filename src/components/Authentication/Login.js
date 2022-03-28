@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 import classes from "./Login.module.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import background from "../../Content/Images/aboutusphoto3.jpg";
 const Login = (props) => {
   const [redirect, setRedirect] = useState(false);
+  const handle = useLocation();
+  console.log(handle.currentuser);
 
   const onSubmit = (data) => {
     let credentials = {
@@ -16,8 +18,8 @@ const Login = (props) => {
     createApiEndpoint(ENDPOINTS.Login)
       .create(credentials)
       .then((response) => {
-        console.log(response.data.token);
         setRedirect(true);
+        handle.currentuser(true);
         if (response.data.token) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }

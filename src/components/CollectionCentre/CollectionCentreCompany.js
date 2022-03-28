@@ -16,7 +16,7 @@ const ChooseBrandRepair = (props) => {
         setCompanieslist(companieslist);
       })
       .catch((err) => console.log(err));
-  }, [companieslist == [0]]);
+  }, [companieslist === [0]]);
 
   return (
     <Fragment>
@@ -32,6 +32,7 @@ const ChooseBrandRepair = (props) => {
               }}
             >
               <img
+                alt=""
                 src={
                   require("../../Content/Images/" + companies.name + ".png")
                     .default

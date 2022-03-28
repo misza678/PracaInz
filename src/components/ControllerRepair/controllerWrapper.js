@@ -1,11 +1,10 @@
-import React, { Fragment, Suspense, useRef, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import classes from "../ConsoleRepair/ConsoleWrapper.module.css";
-import { Link } from "react-scroll";
 import ProductChoose from "../ConsoleRepair/ProductChoose";
 import DefectChoose from "../ConsoleRepair/DefectChoose";
 import ControllerChoose from "./ControllerChoose";
 import ShippingChoose from "../ConsoleRepair/ShippingChoose";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ControllerBrand from "./ControllerBrand";
 const ControllerWrapper = (props) => {
   const [productID, setProductID] = useState(0);

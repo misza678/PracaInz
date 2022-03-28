@@ -6,7 +6,7 @@ export const ENDPOINTS = {
   Defects: "DefectModels",
   Shipping: "ShippingMetods",
   Repair: "Repairs",
-  Images: "Images",
+  Images: "Images/UploadFile",
   Companies: "Companies",
   Register: "Authenticate/register",
   Login: "Authenticate/login",
@@ -14,7 +14,8 @@ export const ENDPOINTS = {
   Customer: "Customers",
   Model: "Models",
   Status: "Status",
-  Collection: "CollectionItems",
+  RepairByID: "Repairs/api/ByUserId",
+  CollectionByID: "CollectionItems/api/ByUserId",
 };
 
 export const createApiEndpoint = (endpoint) => {

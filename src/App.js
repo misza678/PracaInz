@@ -1,8 +1,6 @@
 import "./App.css";
 import Header from "./components/Layout/Header";
-import { useState, useEffect } from "react";
 import Footer from "./components/Layout/Footer";
-import AuthService from "./components/Authentication/AuthService";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import AboutUsWrapper from "./components/AboutUs/AboutUsWrapper";
 import ConsoleWrapper from "./components/ConsoleRepair/ConsoleWrapper";
@@ -16,21 +14,11 @@ import MyAccount from "./components/MyAccount/MyAccountWrapper";
 import Employee from "./components/Employee/Employee";
 import Details from "./components/Employee/OrderDetails";
 import MyaccountOrderDetails from "./components/MyAccount/MyAccountOrderDetails";
+import CollectionForm from "./components/CollectionForm/CollectionFormWrapper";
 function App() {
-  const [currentUser, setCurrentUser] = useState(false);
-  const user = AuthService.getCurrentUser();
-  useEffect(() => {
-    const res = AuthService.AuthVerify();
-    if (res === false) {
-      setCurrentUser(true);
-      console.log(currentUser);
-    } else setCurrentUser(false);
-  }, user);
-
   return (
     <Router>
-      <Header user={currentUser} />
-
+      <Header />
       <main>
         <Route exact path="/">
           <Redirect to="/StronaGlowna" />
@@ -51,6 +39,7 @@ function App() {
         <Route path="/pracownik/szczegoly" exact component={Details} />
         <Route path="/szczegoly" exact component={MyaccountOrderDetails} />
         <Route path="/pracownik" exact component={Employee} />
+        <Route path="/CollectionForm" exact component={CollectionForm} />
       </main>
 
       <Footer />

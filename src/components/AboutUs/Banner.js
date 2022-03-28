@@ -18,19 +18,20 @@ const Banner = (props) => {
             <h3>Wykwalifikowani i doświadczeni pracownicy:</h3>
 
             <p>
-              <img src={check} /> 6 miesięcy gwarancji na większość napraw
+              <img alt="" src={check} /> 6 miesięcy gwarancji na większość
+              napraw
             </p>
             <p>
-              <img src={check} /> Ponad 10 lat doświadczenia
+              <img alt="" src={check} /> Ponad 10 lat doświadczenia
             </p>
             <h3>Naprawiamy:</h3>
             <p>
-              <img src={check} />
+              <img alt="" src={check} />
               Konsole
             </p>
 
             <p>
-              <img src={check} />
+              <img alt="" src={check} />
               Kontrolery
             </p>
 

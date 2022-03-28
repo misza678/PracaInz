@@ -1,14 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import classes from "./MyAccountSection.module.css";
 import { useForm } from "react-hook-form";
 import { createApiEndpoint, ENDPOINTS } from "../../api";
 
 const MyAccountSectionNoData = (props) => {
-  const type = props.type;
-  console.log(type);
-
-  const [addressID, setAddressID] = useState(0);
   const [success, setSuccess] = useState(false);
+
   const AddAddress = (data) => {
     let newaddress = {
       addressID: 0,
@@ -22,30 +19,22 @@ const MyAccountSectionNoData = (props) => {
     createApiEndpoint(ENDPOINTS.Address)
       .create(newaddress)
       .then((response) => {
-        setAddressID(response.data.addressID);
+        let Customer = {
+          customerId: 0,
+          name: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          addressID: response.data.addressID,
+        };
+        createApiEndpoint(ENDPOINTS.Customer)
+          .create(Customer)
+          .then((res) => {
+            setSuccess(true);
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
-
-    console.log(addressID);
-
-    let Customer = {
-      customerId: 0,
-      name: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      addressID: addressID,
-    };
-    if (addressID != 0) {
-      createApiEndpoint(ENDPOINTS.Customer)
-        .create(Customer)
-        .then((res) => {
-          setSuccess(true);
-        })
-        .catch((err) => console.log(err));
-    } else {
-      console.log(addressID);
-    }
   };
 
   const {

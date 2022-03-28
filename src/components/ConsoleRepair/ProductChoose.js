@@ -37,6 +37,7 @@ const ProductChoose = (props) => {
                 }}
               >
                 <img
+                  alt=""
                   src={
                     require("../../Content/Images/" + product.image + ".jpg")
                       .default

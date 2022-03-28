@@ -23,7 +23,7 @@ const ConsoleWrapper = (props) => {
       setzerostep(true);
     }
   });
-  console.log(shippingID);
+
   return (
     <Fragment>
       <div className={classes.Wrapper}>

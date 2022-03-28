@@ -14,7 +14,6 @@ const ChooseBrandRepair = (props) => {
           name: item.name,
         }));
         setCompanieslist(companieslist);
-        console.log("test");
       })
       .catch((err) => console.log(err));
   }, [companieslist == [0]]);
@@ -27,6 +26,7 @@ const ChooseBrandRepair = (props) => {
           <div className={classes.Logo} key={companies.id}>
             <a className={classes.Card} href={"/konsole/" + companies.name}>
               <img
+                alt=""
                 src={
                   require("../../Content/Images/" + companies.name + ".png")
                     .default

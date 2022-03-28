@@ -1,12 +1,9 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import classes from "../MyAccount/MyAccountSection.module.css";
-import { createApiEndpoint, ENDPOINTS } from "../../api";
-import { Link, useLocation, Redirect } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const OrderDetails = (props) => {
   const handle = useLocation();
-
-  console.log(handle.table);
   const table = [handle.table];
 
   return (
@@ -25,6 +22,7 @@ const OrderDetails = (props) => {
             <tr key={item.repairID}>
               <td>
                 <img
+                  alt=""
                   width="200px"
                   src={
                     require("../../Content/Images/" +

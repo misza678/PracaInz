@@ -38,6 +38,7 @@ const ShippinghChoose = (props) => {
                 }}
               >
                 <img
+                  alt=""
                   src={
                     require("../../Content/Images/" +
                       shippingList.image +

@@ -5,8 +5,8 @@ import React, { Fragment, useState, useEffect } from "react";
 const ChooseBrandRepair = (props) => {
   const [companieslist, setCompanieslist] = useState([]);
 
-  useEffect(async () => {
-    await createApiEndpoint(ENDPOINTS.Companies)
+  useEffect(() => {
+    createApiEndpoint(ENDPOINTS.Companies)
       .fetchAll()
       .then((res) => {
         let companieslist = res.data.map((item) => ({
@@ -14,7 +14,6 @@ const ChooseBrandRepair = (props) => {
           name: item.name,
         }));
         setCompanieslist(companieslist);
-        console.log("test");
       })
       .catch((err) => console.log(err));
   }, [companieslist == [0]]);
@@ -27,6 +26,7 @@ const ChooseBrandRepair = (props) => {
           <div className={classes.Logo} key={companies.id}>
             <a className={classes.Card} href={"/kontrolery/" + companies.name}>
               <img
+                alt=""
                 src={
                   require("../../Content/Images/" + companies.name + ".png")
                     .default

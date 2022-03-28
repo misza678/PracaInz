@@ -5,7 +5,6 @@ import MyAccountSection from "./MyAccountSection";
 import { useParams } from "react-router-dom";
 const MyAccount = (props) => {
   let { mod } = useParams();
-  console.log(mod);
 
   return (
     <Fragment>

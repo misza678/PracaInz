@@ -23,7 +23,6 @@ const MyAccountSectionRepairs = (props) => {
           defectID: item.defectID,
         }));
         setRepairs(repairs);
-        console.log(repairs);
       })
       .catch((err) => {
         console.log(err);

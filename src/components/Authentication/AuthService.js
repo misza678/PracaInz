@@ -1,11 +1,8 @@
-import jwt from "jsonwebtoken";
-
 const logout = () => {
   localStorage.removeItem("user");
 };
 
 const getCurrentUser = () => {
-  console.log(JSON.parse(localStorage.getItem("user")));
   return JSON.parse(localStorage.getItem("user"));
 };
 

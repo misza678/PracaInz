@@ -1,10 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import classes from "./MyAccountSection.module.css";
-import { useForm } from "react-hook-form";
-import { createApiEndpoint, ENDPOINTS } from "../../api";
-import MyAccountNoData from "./MyAccountNoData";
 import MyAccountSectionRepairs from "./MyAccountRepairs";
 import MyAccountSectionCollection from "./MyAccountCollection";
+import MyAccountAddressWrapper from "./MyAccountAddressWrapper";
 const MyAccountSection = (props) => {
   const type = props.type;
 
@@ -13,7 +11,7 @@ const MyAccountSection = (props) => {
       <section className={classes.MainSection}>
         {type === "naprawy" ? <MyAccountSectionRepairs /> : null}
         {type === "skup" ? <MyAccountSectionCollection /> : null}
-        {type === "wysylka" ? <MyAccountNoData /> : null}
+        {type === "wysylka" ? <MyAccountAddressWrapper /> : null}
       </section>
     </Fragment>
   );

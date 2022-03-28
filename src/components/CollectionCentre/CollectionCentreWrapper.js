@@ -4,8 +4,8 @@ import classes from "../ConsoleRepair/ConsoleWrapper.module.css";
 import CollectionCentreWithController from "./CollectionCentreWithController";
 import CollectionCentreCategory from "../CollectionCentre/CollectionCentreCategory";
 import CollectionCentreCompany from "../CollectionCentre/CollectionCentreCompany";
-import CollectionCentreImages from "./CollectionCentreImages";
 import ModelChoose from "../ConsoleRepair/ModelChoose";
+import { Link } from "react-router-dom";
 
 const CollectionCentre = (props) => {
   const [firststep, setFirstStep] = useState(false);
@@ -15,7 +15,6 @@ const CollectionCentre = (props) => {
   const [fourthstep, setFourthStep] = useState(false);
   const [company, setCompany] = useState();
   const [category, setCategoryId] = useState();
-  const [mod, setmod] = useState();
   const [consoleid, setConsoleId] = useState(0);
   const [withController, setwithController] = useState(false);
   return (
@@ -46,7 +45,16 @@ const CollectionCentre = (props) => {
               />
             ) : null}
           </div>
-
+          <div className={classes.ConsoleModel}>
+            {thirdstep ? (
+              <ModelChoose
+                productID={consoleid}
+                setModelID={setModelID}
+                category={"Konsola"}
+                setStep={setFourthStep}
+              />
+            ) : null}
+          </div>
           <div className={classes.ConsoleModel}>
             {thirdstep & (category == 1) ? (
               <CollectionCentreWithController
@@ -57,18 +65,18 @@ const CollectionCentre = (props) => {
           </div>
 
           <div className={classes.ConsoleModel}>
-            {thirdstep & (category == 2) ? (
-              <ModelChoose
-                productID={consoleid}
-                setModelID={setModelID}
-                category={"Konsola"}
-                setStep={setFourthStep}
-              />
+            {fourthstep ? (
+              <Link
+                className={classes.nextStep}
+                to={{
+                  pathname: "/CollectionForm",
+                  modelid: modelID,
+                  withController: withController,
+                }}
+              >
+                Przejdź dalej
+              </Link>
             ) : null}
-          </div>
-
-          <div className={classes.ConsoleModel}>
-            {fourthstep ? <CollectionCentreImages /> : null}
           </div>
         </div>
       </div>

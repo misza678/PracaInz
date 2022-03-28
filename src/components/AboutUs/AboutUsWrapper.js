@@ -8,7 +8,8 @@ import CollectionService from "./CollectionService";
 import authService from "../Authentication/AuthService";
 const AboutUs = (props) => {
   useEffect(() => {
-    authService.AuthVerify();
+    const odp = authService.AuthVerify();
+    console.log(odp);
   });
   return (
     <Fragment>
